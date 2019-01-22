@@ -228,3 +228,97 @@ footer p {
     margin-left: 25px;
 
 }
+
+.modal {
+    display: none;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(43,65 , 221, 0.5)
+}
+
+.modal-body {
+    position: fixed;
+    top: 3em;
+    bottom: 2em;
+    right: 30%;
+    left: 30%;
+    padding: 2em 3em;
+    background-color: aquamarine;
+    overflow: auto;
+}
+
+.modal-close {
+    cursor: pointer;
+}
+
+input[type=text], input[type=password] {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 26px;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+input[type=checkbox] {
+    margin: 26px 30px;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 26px;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.formFields a {
+    text-decoration: none;
+    float: right;
+    margin-right: 34px;
+    margin-top: 26px;
+}
+
+.imgContainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.modal-close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.modal-close:hover,.modal-close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+.animate {
+    animation: zoom 0.6s
+}
+@keyframes zoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}

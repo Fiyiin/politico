@@ -18,10 +18,47 @@
                         <div class="pages">
                             <a href="#">Services</a>
                             <a href="#">About</a>
-                            <a href="#">Login</a>
+                            <a href="#" id="open">Login</a>
                             <a href="#" class="btnSignup">Sign Up</a>
                         </div>
                     </div>
+                    <div class="modal" id="modal">
+                        <div class="backdrop">
+                            <div class="modal-body">
+                                <form action="" class="animate">
+                                    <div class="imgContainer">
+                                        <span class="modal-close" id="close" title="close">&times;</span>
+                                        <img src="images/1.png" alt="Avatar" class="avatar">
+                                        <h2>Login</h2>
+                                    </div>
+                                    <div class="formFields">
+                                        <input type="text" placeholder="Enter Username" name="uname">
+                                        <input type="password" placeholder="Enter Password" name="psw">
+                                        <button type="submit">Login</button>
+                                        <input type="checkbox"> Remember me
+                                        <a href="#">Forgot Password ?</a>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        const button = document.getElementById('open');
+                        const close = document.getElementById('close');
+                        const modal = document.getElementById('modal')
+
+                        button.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            modal.style.display = 'block';
+                        });
+
+                        close.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            modal.style.display = 'none';
+                        });
+                    </script>
+
                     <div class="landingContent">
                         <div class="contentLeft">
                             <h1>
@@ -88,7 +125,7 @@
         </div>
         <div class="section">
             <div class="more">
-               <h1>Any Election, Any Device, Any Location</h1>
+                <h1>Any Election, Any Device, Any Location</h1>
                 <div class="icon">
                     <img src="images/key.svg" alt="key">
                     <h3>Amazing Support</h3>
