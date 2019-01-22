@@ -1,0 +1,136 @@
+/*------global stuffs-------*/
+:root {
+    box-sizing: border-box;
+    font-size: calc(1vw + 0.6em);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+}
+
+body {
+    width: 100%;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 100;
+    color: #40495F;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+.btnStarted {
+    display: block;
+    text-decoration: none;
+    color: #EBB044;
+    border: 2px solid #EBB044;
+    border-radius: 3px;
+    width: 175px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btnLearnMore {
+    display: block;
+    text-decoration: none;
+    color: white;
+    background-color: #587BC9;
+    border-radius: 2px;
+    width: 175px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btnSignup {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #EBB044;
+    border-radius: 2px;
+    width: 120px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: 400;
+    font-family: Circular Std book;
+    font-size: 20px;
+}
+
+
+a {
+    text-decoration: none;
+}
+/*------nav-------*/
+.nav {
+    margin-top: 1em;
+}
+
+.nav > a {
+    color: aqua;
+    vertical-align: sub;
+}
+.pages {
+    float: right;
+    text-align: right;
+}
+
+.pages a {
+    margin-left: 75px;
+
+}
+
+.landingWrapper {
+    width: 83%;
+    margin: auto
+}
+
+.landingContent {
+    width: 83%;
+    margin-top: 150px;
+    display: flex;
+}
+
+.contentLeft {
+    flex: 0 0  55%;
+    margin-top: 100px
+}
+
+.contentRight {
+    flex: 0 0 45%;
+}
+
+.about {
+    width: 83%;
+}
+
+.aboutContent {
+    width: 83%;
+    display: flex;
+}
+
+.aContentLeft {
+    flex: 0 0 35%;
+}
+
+.aContentRight {
+    flex: 0 0 65%;
+    margin-top: 250px;
+}
+
