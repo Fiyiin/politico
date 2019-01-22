@@ -134,3 +134,97 @@ a {
     margin-top: 250px;
 }
 
+.services {
+    width: 83%;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 20% 80%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin: 100px;
+}
+
+.services h1 {
+    grid-column: 1 / 4;
+    grid-row: span 1;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.point {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.img {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+
+.more {
+    width: 83%;
+    margin: auto;
+    text-align: center;
+    display: grid;
+    grid-auto-flow: 20% 40% 40%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.more h1 {
+    grid-column: 1 / 4;
+    grid-row: span 1;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.callToAction {
+    width: 83%;
+    margin: auto;
+    margin-top: 100px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.callToAction{
+   
+}
+
+.btnCTA {
+    display: block;
+    text-decoration: none;
+    color: white;
+    background-color: #587BC9;
+    border-radius: 2px;
+    width: 175px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer {
+    width: 83%;
+    margin: auto;
+    margin-bottom: 1.5em;
+}
+
+footer p {
+    display: inline;
+}
+
+.footerPages {
+    float: right;
+    text-align: right;
+}
+
+.footerPages.pages a {
+    margin-left: 25px;
+
+}
