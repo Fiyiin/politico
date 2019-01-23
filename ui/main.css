@@ -199,6 +199,12 @@ a {
     margin-bottom: 50px;
 }
 
+.services p {
+    font-family: lato, sans-serif;
+    font-size: 20px;
+    color: #40495F;
+    margin-bottom: 1.5em;
+}
 .point {
     display: flex;
     flex-direction: column;
@@ -222,6 +228,7 @@ a {
     grid-auto-flow: 20% 40% 40%;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
+    text-align: center;
 }
 
 .more h1 {
@@ -231,49 +238,47 @@ a {
     margin-bottom: 50px;
 }
 
-.callToAction {
-    width: 83%;
-    margin: auto;
-    margin-top: 100px;
-    height: 300px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.more h3, .services h3 {
+    padding: .5em 0em;
+    color: #394255;
+    font-size: 20px;
 }
 
-.callToAction {}
-
-.btnCTA {
-    display: block;
-    text-decoration: none;
-    color: white;
-    background-color: #587BC9;
-    border-radius: 2px;
-    width: 175px;
-    height: 43px;
-    line-height: 43px;
-    text-align: center;
-    margin-top: 30px;
+.icon {
+    width: 150px;
+    height: 150px;
+}
+.more p {
+    font-family: lato, sans-serif;
+    font-size: 15px;
+    color: #40495F;
+    margin-bottom: 1.5em;
 }
 
 footer {
     width: 83%;
     margin: auto;
+    margin-top: 10em;
     margin-bottom: 1.5em;
+    font-family: circular std bold;
+    font-size: 15px;
+    color: #EBB044;
 }
 
 footer p {
-    display: inline;
+    display: inline; 
 }
 
-.footerPages {
+.footer-pages {
     float: right;
     text-align: right;
 }
 
-.footerPages.pages a {
-    margin-left: 25px;
-
+.footer-pages > a {
+    margin-left: 1.5em;
+    color: #EBB044;
 }
+
 
 
 /*-------Login Modal*/
