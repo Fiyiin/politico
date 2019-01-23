@@ -293,7 +293,6 @@ footer p {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(43, 65, 221, 0.5)
 }
 
 .modal-body {
@@ -326,11 +325,14 @@ input[type=checkbox] {
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 14px 20px;
-    margin: 8px 26px;
+    padding: 15px;
+    margin: 8px 19px;
     border: none;
     cursor: pointer;
     width: 90%;
+    font-family: circular std bold, sans-serif;
+    font-size: 20px;
+    
 }
 
 button:hover {
@@ -398,14 +400,13 @@ button:hover {
     overflow: hidden;
 }
 .form-container {
-    max-width: 400px;
+    max-width: 450px;
     overflow: hidden;
     margin: 10px auto;
     margin-top: 50px;
     padding: 10px 20px;
-    background: #3ABABA;
-    border-radius: 8px;
-    border: 1px solid #EBB044;
+    background: #70A3C5;
+    
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2)
 }
 
@@ -417,6 +418,7 @@ button:hover {
     margin: 0;
     padding: 0 0 10px;
     text-align: center;
+    color: white;
 }
 
 .signup-form > * {
@@ -450,10 +452,12 @@ button:hover {
     border: none;
     outline: none;
     height: 40px;
-    background: #1c8adb;
+    background-color: #4CAF50;
     color: #fff;
+    font-family: circular std bold, sans-serif;
     font-size: 18px;
-    border-radius: 20px;
+    margin-top: 20px;
+    
 }
 
 .form-container input[type="submit"]:hover {
