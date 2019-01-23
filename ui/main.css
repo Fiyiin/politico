@@ -248,9 +248,8 @@ footer p {
     bottom: 2em;
     right: 30%;
     left: 30%;
-    padding: 2em 3em;
     background-color: aquamarine;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .modal-close {
@@ -260,13 +259,13 @@ footer p {
 input[type=text], input[type=password] {
     width: 90%;
     padding: 12px 20px;
-    margin: 8px 26px;
+    margin: 8px 19px;
     display: inline-block;
     border: 1px solid #ccc;
 }
 
 input[type=checkbox] {
-    margin: 26px 30px;
+    margin: 26px 8px 26px 30px;
 }
 button {
     background-color: #4CAF50;
@@ -286,7 +285,7 @@ button:hover {
     text-decoration: none;
     float: right;
     margin-right: 34px;
-    margin-top: 26px;
+    margin-top: 22px;
 }
 
 .imgContainer {
@@ -321,4 +320,73 @@ button:hover {
 @keyframes zoom {
     from {transform: scale(0)} 
     to {transform: scale(1)}
+}
+
+
+
+/*---------Sign up---------*/
+
+.form-container {
+     position: fixed;
+    top: 3em;
+    bottom: 2em;
+    right: 30%;
+    left: 30%;
+    padding: 2em 3em;
+    background-color: aquamarine;
+    overflow: auto;
+}
+
+.form-container .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.form-container h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+.form-container p{
+    font-weight: bold;
+}
+.form-container input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.form-container input[type="text"], 
+.form-container input[type="password"], 
+.form-container input[type="email"], 
+.form-containerinput[type="number"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+.form-container input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #1c8adb;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.form-container input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #39dc79;
+    color: #000;
 }
