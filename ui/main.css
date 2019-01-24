@@ -552,7 +552,7 @@ button:hover {
     line-height: 43px;
     text-align: center;
     margin-bottom: 20px;
-    
+
 }
 
 .new-party {
@@ -613,6 +613,7 @@ button:hover {
 .card a {
     color: black;
 }
+
 /*--------Office Tab--------*/
 .img-card {
     width: 100%;
@@ -629,7 +630,7 @@ button:hover {
 .container td {
     font-weight: normal;
     font-size: 1em;
-    
+
     box-shadow: 0 2px 2px -2px #0E1119;
 }
 
@@ -663,17 +664,13 @@ button:hover {
     background-color: #1F2739;
 }
 
-.container td:first-child {
-    
-}
+.container td:first-child {}
 
 .container tr:hover {
     background-color: ;
 }
 
-.container td:hover {
-    
-}
+.container td:hover {}
 
 @media (max-width: 800px) {
 
@@ -681,4 +678,111 @@ button:hover {
     .container th:nth-child(4) {
         display: none;
     }
+}
+
+
+/*----------User page-------*/
+.user-tab {
+    margin-top: 1.5em;
+    display: flex;
+}
+
+.home-tab {
+    flex: 0 0 20%;
+    border: 2px solid #EBB044;
+}
+
+.tab-flex {
+    flex: 0 0 80%;
+    width: 100%;
+}
+
+.tab-flex .tabcontent {
+    width: 100%;
+    margin: auto;
+
+}
+
+.flex-column {
+    margin-right: .5em;
+}
+
+label.other {
+    color: #1194f6;
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 1rem;
+}
+
+label.other input[type=radio] {
+    flex: none;
+    margin-right: 2rem;
+}
+
+label.other span {
+    flex: none;
+    margin-right: 2rem;
+}
+
+
+.form-radio {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    background-color: #f1f1f1;
+    color: #666;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 7px;
+    outline: none;
+}
+
+.form-radio:checked::before {
+    position: absolute;
+    font: 13px/1 'Open Sans', sans-serif;
+    left: 11px;
+    top: 7px;
+    content: '\02143';
+    transform: rotate(40deg);
+}
+
+.form-radio:hover {
+    background-color: #f7f7f7;
+}
+
+.form-radio:checked {
+    background-color: #f1f1f1;
+}
+
+label {
+    font: 300 16px/1.7 'Open Sans', sans-serif;
+    color: #666;
+    cursor: pointer;
+}
+
+.vote-card {
+    width: 420px;
+    min-height: 320px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    padding-bottom: 10px;
+    margin-right: 70px;
+    margin-bottom: 25px;
+}
+
+.vote-card h2 {
+    font-size: 24px;
+    background-color: #3ABABA;
+    color: white;
+    padding: 15px;
+
+}
+
+.radio-button {
+    margin: 25px 25px;
 }
