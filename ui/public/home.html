@@ -27,9 +27,10 @@
                 </div>
             </div>
 
-            <button class="tablinks" onclick="openTab(event, 'Party')" id="defaultOpen">Party</button>
-            <button class="tablinks" onclick="openTab(event, 'Candidate')">Offices</button>
-            <button class="tablinks" onclick="openTab(event, 'Vote')">Vote</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Party')" id="defaultOpen">Party</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Candidate')">Offices</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Vote')">Vote</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Profile')">Profile</button>
         </div>
         <div class="tab-flex">
             <div id="Party" class="tabcontent">
@@ -52,7 +53,7 @@
                                     <p>Party Name</p>
                                     <p>Hq Address</p>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="flex-column">
@@ -62,7 +63,7 @@
                                     <p>Party Name</p>
                                     <p>Hq Address</p>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="flex-column">
@@ -72,7 +73,7 @@
                                     <p>Party Name</p>
                                     <p>Hq Address</p>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="flex-column">
@@ -82,7 +83,7 @@
                                     <p>Party Name</p>
                                     <p>Hq Address</p>
                                 </div>
-                                
+
                             </div>
                         </div>
 
@@ -153,41 +154,87 @@
                     <div class="row">
                         <div class="flex-column">
                             <div class="vote-card">
-                             <h2>Presidential Election</h2>
-                              <div class="radio-button">
-                                 <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Kingsley Moghalu</span></label>
-                               <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Atiku Abubarkar</span></label>
-                               <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Muhamadu Buhari</span></label> 
-                              </div>
-                              <button>Submit Vote</button>
+                                <h2>Presidential Election</h2>
+                                <div class="radio-button">
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Kingsley Moghalu</span></label>
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Atiku Abubarkar</span></label>
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Muhamadu Buhari</span></label>
+                                </div>
+                                <button>Submit Vote</button>
                             </div>
                         </div>
                         <div class="flex-column">
                             <div class="vote-card">
-                             <h2>Presidential Election</h2>
-                              <div class="radio-button">
-                                 <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Kingsley Moghalu</span></label>
-                               <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Atiku Abubarkar</span></label>
-                               <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Muhamadu Buhari</span></label> 
-                              </div>
-                              <button>Submit Vote</button>
+                                <h2>Presidential Election</h2>
+                                <div class="radio-button">
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Kingsley Moghalu</span></label>
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Atiku Abubarkar</span></label>
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Muhamadu Buhari</span></label>
+                                </div>
+                                <button>Submit Vote</button>
                             </div>
                         </div>
                         <div class="flex-column">
                             <div class="vote-card">
-                             <h2>Presidential Election</h2>
-                              <div class="radio-button">
-                                 <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Kingsley Moghalu</span></label>
-                               <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Atiku Abubarkar</span></label>
-                               <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Muhamadu Buhari</span></label> 
-                              </div>
-                              <button>Submit Vote</button>
+                                <h2>Presidential Election</h2>
+                                <div class="radio-button">
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Kingsley Moghalu</span></label>
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Atiku Abubarkar</span></label>
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Muhamadu Buhari</span></label>
+                                </div>
+                                <button>Submit Vote</button>
                             </div>
                         </div>
 
                     </div>
                 </div>
 
+            </div>
+
+            <div id="Profile" class="tabcontent">
+                <div class="user-profile">
+                    <div class="table-title">
+                        <h3>This Is How You Have voted </h3>
+                    </div>
+                    <table class="table-fill">
+                        <thead>
+                            <tr>
+                                <th class="text-left">Candidate</th>
+                                <th class="text-left">Office</th>
+                                <th class="text-left">Party</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-hover">
+                            <tr>
+                                <td class="text-left">Carson Billy</td>
+                                <td class="text-left">Presidency</td>
+                                <td class="text-left">PDP</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">Carson Billy</td>
+                                <td class="text-left">Presidency</td>
+                                <td class="text-left">PDP</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">Carson Billy</td>
+                                <td class="text-left">Presidency</td>
+                                <td class="text-left">PDP</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">Carson Billy</td>
+                                <td class="text-left">Presidency</td>
+                                <td class="text-left">PDP</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">Carson Billy</td>
+                                <td class="text-left">Presidency</td>
+                                <td class="text-left">PDP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
             </div>
         </div>
 
