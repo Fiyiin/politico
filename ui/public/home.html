@@ -17,8 +17,57 @@
             </li>
         </ul>
     </nav>
-    <div class="user-tab">
-        <div class="home-tab">
+    
+    <!-------For RWD------>
+    <nav class="navbar">
+        <span class="open-slide">
+            <a href="#" onclick="openSlideMenu()">
+                <svg width="30" height="30">
+                    <path d="M0,5 30,5" stroke="#fff" stroke-width="5" />
+                    <path d="M0,14 30,14" stroke="#fff" stroke-width="5" />
+                    <path d="M0,23 30,23" stroke="#fff" stroke-width="5" />
+                </svg>
+            </a>
+        </span>
+
+    </nav>
+
+    <div id="side-menu" class="side-nav">
+        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+        <div class="home-ab">
+            <div class="admin-container">
+                <img src="../images/1.png" alt="logo" class="avatar">
+                <div class="card-content">
+                    <h3>Oye Gbenga</h3>
+                    <h4>oyed@politico.com</h4>
+                </div>
+            </div>
+
+            <button class="tablinks tab-button" onclick="openTab(event, 'Party')" id="defaultOpen">Party</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Candidate')">Offices</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Vote')">Vote</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Profile')">Profile</button>
+            <a href="#">Log out</a>
+        </div>
+
+    </div>
+
+    <script>
+        function openSlideMenu(){
+      document.getElementById('side-menu').style.width = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+    }
+
+    function closeSlideMenu(){
+      document.getElementById('side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+  </script>
+   
+   <!-------For RWD------>
+   
+    <div class="tabs">
+        <div class="home-flex">
             <div class="admin-container">
                 <img src="../images/1.png" alt="logo" class="avatar">
                 <div class="card-content">
@@ -93,7 +142,7 @@
             </div>
 
             <div id="Candidate" class="tabcontent">
-                <table class="container">
+                <table class="table-fill">
                     <thead>
                         <tr>
                             <th>
@@ -114,34 +163,34 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="hover-body">
                         <tr>
-                            <td>Lindsey Hope</td>
-                            <td>Fedral</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
+                            <td data-column="Candidate" >Lindsey Hope</td>
+                            <td data-column="Office" >Fedral</td>
+                            <td data-column="Party" >N/A</td>
+                            <td data-column="State" >N/A</td>
+                            <td data-column="LGA" >N/A</td>
                         </tr>
                         <tr>
-                            <td>Carson Billy</td>
-                            <td>Fedral</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
+                            <td data-column="Candidate" >Carson Billy</td>
+                            <td data-column="Office" >Fedral</td>
+                            <td data-column="Party" >N/A</td>
+                            <td data-column="State" >N/A</td>
+                            <td data-column="LGA" >N/A</td>
                         </tr>
                         <tr>
-                            <td>John Tosin</td>
-                            <td>Fedral</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
+                            <td data-column="Candidate" >John Tosin</td>
+                            <td data-column="Office" >Fedral</td>
+                            <td data-column="Party" >N/A</td>
+                            <td data-column="State" >N/A</td>
+                            <td data-column="LGA" >N/A</td>
                         </tr>
                         <tr>
-                            <td>Gbenga Hillton</td>
-                            <td>Fedral</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
+                            <td data-column="Candidate" >Gbenga Hillton</td>
+                            <td data-column="Office" >Fedral</td>
+                            <td data-column="Party" >N/A</td>
+                            <td data-column="State" >N/A</td>
+                            <td data-column="LGA" >N/A</td>
                         </tr>
 
                     </tbody>
@@ -193,42 +242,40 @@
 
             <div id="Profile" class="tabcontent">
                 <div class="user-profile">
-                    <div class="table-title">
-                        <h3>This Is How You Have voted </h3>
-                    </div>
+                    
                     <table class="table-fill">
                         <thead>
                             <tr>
-                                <th class="text-left">Candidate</th>
-                                <th class="text-left">Office</th>
-                                <th class="text-left">Party</th>
+                                <th  >Candidate</th>
+                                <th  >Office</th>
+                                <th  >Party</th>
                             </tr>
                         </thead>
                         <tbody class="table-hover">
                             <tr>
-                                <td class="text-left">Carson Billy</td>
-                                <td class="text-left">Presidency</td>
-                                <td class="text-left">PDP</td>
+                                <td data-column="Candidate"  >Carson Billy</td>
+                                <td data-column="Office"  >Presidency</td>
+                                <td data-column="Party"  >PDP</td>
                             </tr>
                             <tr>
-                                <td class="text-left">Carson Billy</td>
-                                <td class="text-left">Presidency</td>
-                                <td class="text-left">PDP</td>
+                                <td data-column="Candidate"  >Carson Billy</td>
+                                <td data-column="Office"  >Presidency</td>
+                                <td data-column="Party"  >PDP</td>
                             </tr>
                             <tr>
-                                <td class="text-left">Carson Billy</td>
-                                <td class="text-left">Presidency</td>
-                                <td class="text-left">PDP</td>
+                                <td data-column="Candidate"  >Carson Billy</td>
+                                <td data-column="Office"  >Presidency</td>
+                                <td data-column="Party"  >PDP</td>
                             </tr>
                             <tr>
-                                <td class="text-left">Carson Billy</td>
-                                <td class="text-left">Presidency</td>
-                                <td class="text-left">PDP</td>
+                                <td data-column="Candidate"  >Carson Billy</td>
+                                <td data-column="Office"  >Presidency</td>
+                                <td data-column="Party"  >PDP</td>
                             </tr>
                             <tr>
-                                <td class="text-left">Carson Billy</td>
-                                <td class="text-left">Presidency</td>
-                                <td class="text-left">PDP</td>
+                                <td data-column="Candidate"  >Carson Billy</td>
+                                <td data-column="Office"  >Presidency</td>
+                                <td data-column="Party"  >PDP</td>
                             </tr>
                         </tbody>
                     </table>
