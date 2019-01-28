@@ -25,7 +25,9 @@
   },
   "homepage": "https://github.com/Fiyiin/politico#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
