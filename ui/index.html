@@ -20,10 +20,11 @@
                             <li><a href="/pricing">About</a></li>
                             <li><a href="#" id="open">Login</a></li>
                             <li>
-                                <a href="public/signup.html" class="btnSignu">Sign Up</a>
+                                <a href="#" id="signup-open" class="btnSignu">Sign Up</a>
                             </li>
                         </ul>
                     </nav>
+
                     <div class="modal" id="modal">
                         <div class="backdrop">
                             <div class="modal-body">
@@ -59,7 +60,51 @@
                             event.preventDefault();
                             modal.style.display = 'none';
                         });
+                    </script>
 
+                    <div class="modal" id="signup-modal">
+                        <div class="backdrop">
+                            <div class="modal-body">
+                                <form action="../ui/public/home.html" class="animate">
+                                    <div class="imgContainer">
+                                        <img src="images/1.png" alt="Avatar" class="signup-avatar">
+                                        <span class="modal-close" id="signup-close" title="signup-close">&times;</span>
+                                        <h2>Sign Up</h2>
+                                    </div>
+                                    <div class="formFields">
+
+                                        <input type="text" name="firstname" placeholder="Firstname">
+
+                                        <input type="text" name="lastname" placeholder="Lastname">
+
+                                        <input type="text" name="email" placeholder="johndoe@example.com">
+
+                                        <input type="text" name="phoneNO" placeholder="08034257654">
+
+                                        <input type="Password" name="password" placeholder="password">
+
+                                        <input type="password" name="confirm_pass" placeholder="Confirm Password">
+                                        <button type="submit">Sign Up</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        const signupButton = document.getElementById('signup-open');
+                        const signupClose = document.getElementById('signup-close');
+                        const signupModal = document.getElementById('signup-modal')
+
+                        signupButton.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            signupModal.style.display = 'block';
+                        });
+
+                        signupClose.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            signupModal.style.display = 'none';
+                        });
                     </script>
 
                     <div class="landingContent">
@@ -69,7 +114,51 @@
                                 place. <br>
                                 For both Politicians and <br> Citizens alike.
                             </h1>
-                            <a href="../ui/public/signup.html" class="btnStarted">Get Started</a>
+                            <a href="#" id="getstarted-open" class="btnStarted">Get Started</a>
+                            <div class="modal" id="getstarted-modal">
+                        <div class="backdrop">
+                            <div class="modal-body">
+                                <form action="../ui/public/home.html" class="animate">
+                                    <div class="imgContainer">
+                                        <img src="images/1.png" alt="Avatar" class="signup-avatar">
+                                        <span class="modal-close" id="getstarted-close" title="signup-close">&times;</span>
+                                        <h2>Sign Up</h2>
+                                    </div>
+                                    <div class="formFields">
+
+                                        <input type="text" name="firstname" placeholder="Firstname">
+
+                                        <input type="text" name="lastname" placeholder="Lastname">
+
+                                        <input type="text" name="email" placeholder="johndoe@example.com">
+
+                                        <input type="text" name="phoneNO" placeholder="08034257654">
+
+                                        <input type="Password" name="password" placeholder="password">
+
+                                        <input type="password" name="confirm_pass" placeholder="Confirm Password">
+                                        <button type="submit">Sign Up</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        const getstartedButton = document.getElementById('getstarted-open');
+                        const getstartedClose = document.getElementById('getstarted-close');
+                        const getstartedModal = document.getElementById('getstarted-modal')
+
+                        getstartedButton.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            getstartedModal.style.display = 'block';
+                        });
+
+                        getstartedClose.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            getstartedModal.style.display = 'none';
+                        });
+                    </script>
                         </div>
                         <div class="contentRight">
                             <img src="images/voters.svg" alt="voters" class="voters">
