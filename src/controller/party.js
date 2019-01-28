@@ -21,6 +21,21 @@ class Party {
 
     });
   }
+
+  /**
+   *
+   * param {object} req
+   * param {object} res
+   * return [array] returns array of party object
+   */
+  static getAllParties(req, res) {
+    res.status(200).json({
+      status: 200,
+      data: [{
+        message: party,
+      }],
+    });
+  }
 }
 
 export default Party;
