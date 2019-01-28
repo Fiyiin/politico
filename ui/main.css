@@ -43,15 +43,14 @@ h3 {
 .btnStarted {
     display: block;
     text-decoration: none;
-    color: #EBB044;
-    border: 2px solid #EBB044;
+    background-color: #EBB044;
+    color: white;
     border-radius: 3px;
-    width: 175px;
-    height: 43px;
-    line-height: 43px;
+    width: 210px;
     text-align: center;
     margin-top: 30px;
     font-size: 25px;
+    padding: 0.5em;
 }
 
 .btnLearnMore {
@@ -100,6 +99,7 @@ h3 {
 a {
     text-decoration: none;
     color: white;
+    font-size: 15px;
 }
 
 
@@ -156,9 +156,11 @@ a {
 }
 
 .site-nav > li:last-child > a {
-    font-family: circular std book, sans-serif;
-    color: white;
-    background: #EBB044
+    font-family: lato, sans-serif;
+    color: #EBB044;
+    background: white;
+    border: 1px solid #EBB044;
+    border-radius: 3px;
 }
 
 .result-nav {
@@ -480,10 +482,24 @@ footer .footer-pages a:hover {
 
 
 
-/*-------Login Modal-------*/
+/*-------Modals-------*/
 
 .modal {
     display: none;
+}
+
+.admin-modal {
+    display: none;
+}
+
+.edit-modal {
+    display: none;
+}
+
+.edit-p,
+legend {
+    margin: 8px 19px;
+    font-weight: bold;
 }
 
 .backdrop {
@@ -492,6 +508,8 @@ footer .footer-pages a:hover {
     right: 0;
     bottom: 0;
     left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
 }
 
 .modal-body {
@@ -502,6 +520,69 @@ footer .footer-pages a:hover {
     left: 30%;
     background-color: #70A3C5;
     overflow: hidden;
+}
+
+.admin-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.modal-content {
+    width: 500px;
+    background: white;
+    border: 1px solid #ccc;
+    transition: 1.1s ease-out;
+    box-shadow: -2rem 2rem 2rem rgba(0, 0, 0, 0.2);
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content h2 {
+    border-bottom: 1px solid #ccc;
+    padding: 1rem;
+    margin: 0;
+}
+
+.modal-content .content {
+    padding: 1rem;
+}
+
+.modal-content .actions {
+    border-top: 1px solid #ccc;
+    background: #eee;
+
+}
+
+.admin-modal .actions button {
+    float: right;
+    border: 0;
+    background: #78f89f;
+    color: white;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    line-height: 1;
+    margin-left: 10px;
+}
+
+.admin-modal .actions button:first-child {
+    background-color: red;
+}
+
+.edit-modal .actions button {
+    float: right;
+    border: 0;
+    background: #78f89f;
+    color: white;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    line-height: 1;
+    margin-left: 10px;
 }
 
 @media (max-width: 600px) {
@@ -522,7 +603,8 @@ footer .footer-pages a:hover {
 }
 
 input[type=text],
-input[type=password] {
+input[type=password],
+input[type=file] {
     width: 90%;
     padding: 12px 20px;
     margin: 8px 19px;
@@ -567,6 +649,16 @@ input[type=checkbox] {
 .avatar {
     width: 200px;
     height: 200px;
+    border-radius: 50%;
+}
+
+form {
+    height: 100%;
+}
+
+.signup-avatar {
+    width: 135px;
+    height: 135px;
     border-radius: 50%;
 }
 
@@ -702,6 +794,48 @@ input[type=checkbox] {
     list-style-type: none;
 }
 
+.new-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.party,
+.candidate {
+    border: 1px solid white;
+    margin-bottom: 50px;
+    width: 65%;
+    padding: 0 50px 50px 50px;
+    margin: auto;
+}
+
+.candidate {
+    margin-top: 2em;
+}
+
+.party h2,
+.candidate h2 {
+    font-size: 20px;
+    padding-top: 15px;
+    margin-left: 15px;
+}
+
+.actions button{
+    float: right;
+    border: 0;
+    background: #78f89f;
+    color: white;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    line-height: 1;
+    margin-left: 10px;
+}
+
+@media (max-width: 420px) {
+    .party, .candidate {
+        width: auto;
+    }
+}
 
 /*---------Tabbed Display--------*/
 
@@ -743,26 +877,15 @@ input[type=checkbox] {
     height: 100vh;
 }
 
-.new-party {
-    display: block;
-    text-decoration: none;
-    color: white;
-    background-color: #587BC9;
-    border-radius: 2px;
-    width: 300px;
-    height: 43px;
-    line-height: 43px;
-    text-align: center;
-    margin-bottom: 20px;
-
-}
-
-.new-party {
-    color: white;
-}
-
 /*---------Party Tab-----*/
 
+.party-links .party-edit {
+    background-color: blue;
+}
+
+.party-links .party-delete {
+    background-color: red;
+}
 
 .profile {
     position: relative;
@@ -931,6 +1054,12 @@ ul span {
     .navbar {
         display: none;
     }
+
+    .vote-card {
+
+        width: 350px;
+        margin: auto;
+    }
 }
 
 .tab-flex .tabcontent {
@@ -1017,6 +1146,13 @@ label {
 
 }
 
+@media (max-width: 420px) {
+    .vote-card {
+        width: 350px;
+        margin: auto;
+    }
+}
+
 .radio-button {
     margin: 25px 25px;
 }
@@ -1049,12 +1185,19 @@ label {
 }
 
 .side-nav a {
-    padding: 10px 10px 10px 30px;
     text-decoration: none;
-    font-size: 22px;
-    color: #ccc;
+    font-size: 20px;
     display: block;
     transition: 0.3s;
+}
+
+.card-content a {
+    border: 1px solid #EBB044;
+    border-radius: 3px;
+    font-size: 18px;
+    font-family: lato, sans-serif;
+    padding: 8px 15px;
+    margin-top: 10px;
 }
 
 .side-nav a:hover {
@@ -1197,7 +1340,7 @@ td:last-child {
     font-weight: 300;
     line-height: 1;
     letter-spacing: -0.015em;
-    margin-bottom: 36px;
+    margin-bottom: 20px;
     max-width: 600px;
 }
 
@@ -1231,7 +1374,9 @@ td:last-child {
 }
 
 .result-title {
-    font-size: 20px
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: left;
 }
 
 .result-item {
@@ -1294,6 +1439,7 @@ td:last-child {
     background-color: #D1E7F5;
     height: 100%;
 }
+
 .container {
     font-size: 12px;
     line-height: 30px;
@@ -1320,7 +1466,7 @@ td:last-child {
 .contest h3 {
     color: #EBB044;
     display: block;
-    
+
 }
 
 .contest h4 {

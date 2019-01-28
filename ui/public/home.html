@@ -44,10 +44,10 @@
                 </div>
             </div>
 
-            <button class="tablinks tab-button" onclick="openTab(event, 'Party')" id="defaultOpen">Party</button>
-            <button class="tablinks tab-button" onclick="openTab(event, 'Candidate')">Offices</button>
-            <button class="tablinks tab-button" onclick="openTab(event, 'Vote')">Vote</button>
-            <button class="tablinks tab-button" onclick="openTab(event, 'Profile')">Voting History</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Party'); closeSlideMenu()" id="defaultOpen">Party</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Candidate'); closeSlideMenu()">Offices</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Vote'); closeSlideMenu()">Vote</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Profile');closeSlideMenu()">Voting History</button>
             <a class="tablinks tab-button" href="../public/results.html">Results</a>
             <a class="tablinks tab-button" href="../index.html">Log out</a>
         </div>
@@ -57,12 +57,11 @@
     <script>
         function openSlideMenu(){
       document.getElementById('side-menu').style.width = '250px';
-      document.getElementById('main').style.marginLeft = '250px';
+      
     }
 
     function closeSlideMenu(){
       document.getElementById('side-menu').style.width = '0';
-      document.getElementById('main').style.marginLeft = '0';
     }
   </script>
 
