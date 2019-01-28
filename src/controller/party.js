@@ -31,17 +31,17 @@ class Party {
   static getAllParties(req, res) {
     res.status(200).json({
       status: 200,
-      data: [{
-        message: politicalParty,
-      }],
+      data: [
+        politicalParty,
+      ],
     });
   }
 
   static getPartyById(req, res) {
     const { id } = req.params;
-    const findParty = partyById(politicalParty, id);
-    console.log(findParty[0].name);
-    if (findParty.length === 0) {
+    const party = partyById(politicalParty, id);
+    console.log(party[0].name);
+    if (party.length === 0) {
       res.status(404).json({
         status: 404,
         error: "Can't find any Party with that Id",
@@ -49,7 +49,7 @@ class Party {
     } else {
       res.status(200).json({
         status: 200,
-        findParty,
+        data: [party],
       });
     }
   }
@@ -57,24 +57,41 @@ class Party {
   static editParty(req, res) {
     const { id } = req.params;
     const { name, hqAddress, logoUrl } = req.body;
-    const findParty = partyById(politicalParty, id);
+    const party = partyById(politicalParty, id);
 
-    if (findParty.length === 0) {
+    if (party.length === 0) {
       res.status(404).json({
         status: 404,
         error: "Can't find any Party with that Id",
       });
     } else {
-      findParty[0].name = name || '';
-      findParty[0].hqAddress = hqAddress;
-      findParty[0].logoUrl = logoUrl;
+      party[0].name = name || '';
+      party[0].hqAddress = hqAddress;
+      party[0].logoUrl = logoUrl;
       res.status(200).json({
         status: 200,
-        findParty,
+        data: [party],
       });
     }
   }
 
+  static deleteParty(req, res) {
+    const { id } = req.params;
+    const party = partyById(politicalParty, id);
+
+    if (party.length !== 1) {
+      res.status(404).json({
+        status: 404,
+        error: "Can't find any Party with that Id",
+      });
+    } else {
+      politicalParty.splice(politicalParty.indexOf(party[0]), 1);
+      res.status(204).json({
+        status: 204,
+        data: [{}],
+      });
+    }
+  }
 }
 
 export default Party;
