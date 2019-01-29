@@ -19,6 +19,21 @@ class Office {
 
     });
   }
+
+  /**
+   *
+   * param {object} req
+   * param {object} res
+   * return [array] returns array of party object
+   */
+  static getAllOffices(req, res) {
+    res.status(200).json({
+      status: 200,
+      data: [
+        politicalOffice,
+      ],
+    });
+  }
 }
 
 export default Office;
