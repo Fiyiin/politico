@@ -1,14 +1,14 @@
 import politicalParty from '../models/party';
-import partyById from '../helpers/helpers';
+import findById from '../helpers/helpers';
 
 class Party {
   /**
+   * Creates new party object
    *
-   * param {object} req
-   * param {object} res
-   * return {object} retuns party object
+   * @param {object} req
+   * @param {object} res
+   * @return {object} The party object
    */
-
   static createNewParty(req, res) {
     const newParty = req.body;
     politicalParty.push(newParty);
@@ -23,10 +23,11 @@ class Party {
   }
 
   /**
+   * Gets the party array
    *
-   * param {object} req
-   * param {object} res
-   * return [array] returns array of party object
+   * @param {object} req
+   * @param {object} res
+   * @returns {Array} The array of party objects
    */
   static getAllParties(req, res) {
     res.status(200).json({
@@ -37,10 +38,17 @@ class Party {
     });
   }
 
+  /**
+   * Gets the party object with the given Id
+   *
+   * @param {object} req
+   * @param {object} res
+   * @returns {Array} Array containing the party object
+   */
   static getPartyById(req, res) {
     const { id } = req.params;
-    const party = partyById(politicalParty, id);
-    console.log(party[0].name);
+    const party = findById(politicalParty, id);
+
     if (party.length === 0) {
       res.status(404).json({
         status: 404,
@@ -54,10 +62,17 @@ class Party {
     }
   }
 
+  /**
+   * Edits the party object with the given Id
+   *
+   * @param {object} req
+   * @param {object} res
+   * @return {object} The updated party object
+   */
   static editParty(req, res) {
     const { id } = req.params;
     const { name, hqAddress, logoUrl } = req.body;
-    const party = partyById(politicalParty, id);
+    const party = findById(politicalParty, id);
 
     if (party.length === 0) {
       res.status(404).json({
@@ -75,11 +90,18 @@ class Party {
     }
   }
 
+  /**
+   * Deletes the party object with the given Id
+   *
+   * @param {object} req
+   * @param {object} res
+   * @return {void}
+   */
   static deleteParty(req, res) {
     const { id } = req.params;
-    const party = partyById(politicalParty, id);
+    const party = findById(politicalParty, id);
 
-    if (party.length !== 1) {
+    if (!Array.isArray(party) || !party.length) {
       res.status(404).json({
         status: 404,
         error: "Can't find any Party with that Id",
