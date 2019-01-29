@@ -1,7 +1,6 @@
 import express from 'express';
 import logger from 'morgan';
 import bodyparser from 'body-parser';
-import expressValidator from 'express-validator';
 
 import partyRouter from './routes/party';
 import officeRouter from './routes/office';
@@ -12,7 +11,6 @@ const port = process.env.PORT || 3000;
 app.use(logger('dev'));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
-app.use(expressValidator());
 
 app.get('/', (req, res) => {
   return res.status(200).json({
