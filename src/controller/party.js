@@ -12,7 +12,6 @@ class Party {
   static createNewParty(req, res) {
     const { id } = req.body;
     const party = findById(politicalParty, id);
-    console.log(party)
 
     if (party.length === 0) {
       const newParty = req.body;
@@ -26,7 +25,7 @@ class Party {
 
       });
     }
-    res.status(409).json({
+    return res.status(409).json({
       status: 409,
       error: 'Party with that Id already exists',
     });

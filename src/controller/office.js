@@ -10,14 +10,24 @@ class Office {
    * @return {object} The party object
    */
   static createNewOffice(req, res) {
-    const newOffice = req.body;
-    politicalOffice.push(newOffice);
+    const { id } = req.body;
+    const office = findById(politicalOffice, id);
 
-    return res.status(201).json({
-      status: 201,
-      data: [newOffice,
-      ],
+    if (office.length === 0) {
+      const newOffice = req.body;
+      politicalOffice.push(newOffice);
 
+      return res.status(201).json({
+        status: 201,
+        data: [{
+          data: newOffice,
+        }],
+
+      });
+    }
+    return res.status(409).json({
+      status: 409,
+      error: 'Party with that Id already exists',
     });
   }
 
@@ -29,7 +39,7 @@ class Office {
    * @returns {Array} Array containing all office objects
    */
   static getAllOffices(req, res) {
-    res.status(200).json({
+    return res.status(200).json({
       status: 200,
       data: [
         politicalOffice,
