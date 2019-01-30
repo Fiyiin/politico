@@ -4,7 +4,7 @@
   "description": "Politico enables citizens give their mandate to politicians running for different government offices.",
   "main": "app.js",
   "scripts": {
-    "test": "npm run build && mocha dist/tests/*.js --exit",
+    "test": "npm run build && nyc mocha dist/tests/*.js --exit",
     "build": "babel src -d dist",
     "start": "babel-node src/app.js",
     "serve": "node dist/app.js"
@@ -31,7 +31,8 @@
     "express-validator": "^5.3.1",
     "mocha": "^5.2.0",
     "morgan": "^1.9.1",
-    "supertest": "^3.4.2"
+    "supertest": "^3.4.2",
+    "travis-ci-encrypt": "^1.0.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -40,6 +41,7 @@
     "@babel/preset-env": "^7.2.3",
     "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "nyc": "^13.1.0"
   }
 }
