@@ -1,0 +1,41 @@
+{
+  "name": "politico",
+  "version": "1.0.0",
+  "description": "Politico enables citizens give their mandate to politicians running for different government offices.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d dist",
+    "start": "nodemon --exec babel-node src/app.js",
+    "serve": "node dist/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fiyiin/politico.git"
+  },
+  "keywords": [
+    "api",
+    "data-structures",
+    "dummy-data"
+  ],
+  "author": "Fiyin Kolawole",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fiyiin/politico/issues"
+  },
+  "homepage": "https://github.com/Fiyiin/politico#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "eslint": "^5.11.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
