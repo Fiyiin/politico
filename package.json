@@ -4,9 +4,9 @@
   "description": "Politico enables citizens give their mandate to politicians running for different government offices.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run build && mocha dist/tests/*.js --exit",
     "build": "babel src -d dist",
-    "start": "nodemon --exec babel-node src/app.js",
+    "start": "babel-node src/app.js",
     "serve": "node dist/app.js"
   },
   "repository": {
@@ -26,8 +26,13 @@
   "homepage": "https://github.com/Fiyiin/politico#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "expect": "^24.0.0",
     "express": "^4.16.4",
-    "morgan": "^1.9.1"
+    "mocha": "^5.2.0",
+    "morgan": "^1.9.1",
+    "supertest": "^3.4.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
