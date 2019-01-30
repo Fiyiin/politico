@@ -117,9 +117,9 @@ class Party {
       });
     } else {
       politicalParty.splice(politicalParty.indexOf(party[0]), 1);
-      res.status(204).json({
-        status: 204,
-        data: [{}],
+      res.status(410).json({
+        status: 410,
+        data: 'Successfully deleted party',
       });
     }
   }

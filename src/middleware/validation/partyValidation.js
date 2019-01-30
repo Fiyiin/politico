@@ -9,6 +9,7 @@ const validation = {
     check('logoUrl').isURL().withMessage('Enter a valid Url'),
   ],
   checkPartyById: [...checkPartyId],
+  checkEditParty: [check('name').isLength({ min: 1 }).withMessage('Party name cannot be empty')],
 };
 
 export default validation;
