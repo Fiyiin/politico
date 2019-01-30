@@ -6,7 +6,7 @@ node_js:
   - node
 addons:
   code_climate:
-    repo_token: df733ab0e62764d8a7330092a8b80f1ac954b017d3e8573f8ec66e62f0a26490
+    repo_token: f851608304acd492642dc7d0a28af9031d5996f50e339bb67434787454b42a38
 script:
   - npm test
 before_script:
