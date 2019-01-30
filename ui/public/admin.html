@@ -43,24 +43,23 @@
                 </div>
             </div>
 
-            <button class="tablinks tab-button" onclick="openTab(event, 'Party')" id="defaultOpen">Party</button>
-            <button class="tablinks tab-button" onclick="openTab(event, 'Candidate')">Offices</button>
-            <a href="#">Log out</a>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Party'); closeSlideMenu()" id="defaultOpen">Party</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Candidate'); closeSlideMenu()">Offices</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'New'); closeSlideMenu()">New</button>
+            <a class="tablinks tab-button" href="../index.html">Log out</a>
         </div>
 
     </div>
 
     <script>
-        function openSlideMenu(){
-      document.getElementById('side-menu').style.width = '250px';
-      document.getElementById('main').style.marginLeft = '250px';
-    }
+        function openSlideMenu() {
+            document.getElementById('side-menu').style.width = '250px';
+        }
 
-    function closeSlideMenu(){
-      document.getElementById('side-menu').style.width = '0';
-      document.getElementById('main').style.marginLeft = '0';
-    }
-  </script>
+        function closeSlideMenu() {
+            document.getElementById('side-menu').style.width = '0';
+        }
+    </script>
 
     <!-------For RWD------>
 
@@ -70,16 +69,16 @@
                 <img src="../images/1.png" alt="logo" class="avatar">
                 <div class="card-content">
                     <h3>Oye Gbenga</h3>
-                    <h4>oyed@politico.com</h4>
+                    <h4>Admin</h4>
                 </div>
             </div>
 
             <button class="tablinks tab-button" onclick="openTab(event, 'Party')" id="defaultOpen">Party</button>
             <button class="tablinks tab-button" onclick="openTab(event, 'Candidate')">Offices</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'New')">New</button>
         </div>
         <div class="tab-flex">
             <div id="Party" class="tabcontent">
-
                 <div class="party-container">
                     <div class="row">
                         <div class="profile">
@@ -91,30 +90,12 @@
                                 <h1>APC</h1>
                                 <p>Party Hq</p>
                             </div>
-                            <ul>
-                                <li>
-                                    <a href="/about" onclick="">Edit</a>
+                            <ul class="party-links">
+                                <li class="party-edit">
+                                    <a href="#" class="edit-open">Edit</a>
                                 </li>
-                                <li>
-                                    <a href="/about">Delete</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="profile">
-                            <div class="profile-header">
-                                <img src="../images/download.jpg" alt="">
-                            </div>
-                            <div class="profile-content">
-                                <img src="../images/download.jpg" alt="">
-                                <h1>APC</h1>
-                                <p>Party Hq</p>
-                            </div>
-                            <ul>
-                                <li>
-                                    <a href="/about">Edit</a>
-                                </li>
-                                <li>
-                                    <a href="/about">Delete</a>
+                                <li class="party-delete">
+                                    <a href="#" class="admin-open">Delete</a>
                                 </li>
                             </ul>
                         </div>
@@ -127,30 +108,12 @@
                                 <h1>APC</h1>
                                 <p>Party Hq</p>
                             </div>
-                            <ul>
-                                <li>
-                                    <a href="/about">Edit</a>
+                            <ul class="party-links">
+                                <li class="party-edit">
+                                    <a href="#" class="edit-open">Edit</a>
                                 </li>
-                                <li>
-                                    <a href="/about">Delete</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="profile">
-                            <div class="profile-header">
-                                <img src="../images/download.jpg" alt="">
-                            </div>
-                            <div class="profile-content">
-                                <img src="../images/download.jpg" alt="">
-                                <h1>APC</h1>
-                                <p>Party Hq</p>
-                            </div>
-                            <ul>
-                                <li>
-                                    <a href="/about">Edit</a>
-                                </li>
-                                <li>
-                                    <a href="/about">Delete</a>
+                                <li class="party-delete">
+                                    <a href="#" class="admin-open">Delete</a>
                                 </li>
                             </ul>
                         </div>
@@ -163,12 +126,12 @@
                                 <h1>APC</h1>
                                 <p>Party Hq</p>
                             </div>
-                            <ul>
-                                <li>
-                                    <a href="/about">Edit</a>
+                            <ul class="party-links">
+                                <li class="party-edit">
+                                    <a href="#" class="edit-open">Edit</a>
                                 </li>
-                                <li>
-                                    <a href="/about">Delete</a>
+                                <li class="party-delete">
+                                    <a href="#" class="admin-open">Delete</a>
                                 </li>
                             </ul>
                         </div>
@@ -181,23 +144,119 @@
                                 <h1>APC</h1>
                                 <p>Party Hq</p>
                             </div>
-                            <ul>
-                                <li>
-                                    <a href="/about">Edit</a>
+                            <ul class="party-links">
+                                <li class="party-edit">
+                                    <a href="#" class="edit-open">Edit</a>
                                 </li>
-                                <li>
-                                    <a href="/about">Delete</a>
+                                <li class="party-delete">
+                                    <a href="#" class="admin-open">Delete</a>
                                 </li>
                             </ul>
                         </div>
 
 
                     </div>
-                </div>
+                    <div id="edit-modal" class="edit-modal">
+                        <div class="backdrop">
+                            <div class="admin-wrapper">
+                                <div class="modal-content">
+                                    <h2>Edit Party</h2>
+                                    <div class="content">
 
+                                        <form action="" class="signup-form">
+                                            <p class="edit-p">Party Name</p>
+                                            <input type="text" name="partyname" placeholder="Party name">
+                                            <p class="edit-p">Headquaters</p>
+                                            <input type="text" name="address" placeholder="Address">
+                                            <fieldset>
+                                                <legend>Party Logo</legend>
+                                                <input type="file" name="pary Logo" accept="image/*">
+                                            </fieldset>
+
+                                        </form>
+
+                                    </div>
+                                    <div class="actions">
+                                        <button class="edit-close">Cancel</button>
+                                        <button onclick="edtSave()">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            var editmodal = document.getElementsByClassName('edit-modal');
+
+                            var editbtn = document.getElementsByClassName("edit-open");
+                            var closebtn = document.getElementsByClassName("edit-close");
+                            for (let i = 0; i < editbtn.length; i++) {
+                                editbtn[i].onclick = function() {
+                                    editmodal[i].style.display = "block";
+                                }
+                            }
+                            for (let i = 0; i < closebtn.length; i++) {
+                                closebtn[i].onclick = function() {
+                                    editmodal[i].style.display = "none";
+                                }
+                            }
+
+                            function edtSave() {
+                                const save = document.getElementById('edit-modal');
+                                save.style.display = "none"
+                            }
+                        </script>
+                    </div>
+
+
+                    <div id="admin-modal" class="admin-modal">
+                        <div class="backdrop">
+                            <div class="admin-wrapper">
+
+                                <div class="modal-content">
+                                    <h2>Delete Party</h2>
+                                    <div class="content">
+                                        Are you sure you want to delete?
+                                        <p>Please note that this action cannot be undone</p>
+                                    </div>
+                                    <div class="actions">
+                                        <button class="admin-close">Delete</button>
+                                        <button onclick="delCancel()">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            var modals = document.getElementsByClassName('admin-modal');
+
+                            var buttons = document.getElementsByClassName("admin-open");
+                            var close = document.getElementsByClassName("admin-close");
+                            for (let i = 0; i < buttons.length; i++) {
+                                buttons[i].onclick = function() {
+                                    modals[i].style.display = "block";
+                                }
+                            }
+                            for (let i = 0; i < close.length; i++) {
+                                close[i].onclick = function() {
+                                    modals[i].style.display = "none";
+                                }
+                            }
+
+                            function delCancel() {
+                                const cancel = document.getElementById('admin-modal');
+                                cancel.style.display = "none"
+                            }
+                        </script>
+                    </div>
+
+
+                </div>
             </div>
 
+
             <div id="Candidate" class="tabcontent">
+                <div class="new-party">
+                    <a href="#" class="edit-modal">Create New Party</a>
+                </div>
                 <table class="table-fill">
                     <thead>
                         <tr>
@@ -252,6 +311,54 @@
                     </tbody>
                 </table>
             </div>
+            <div id="New" class="tabcontent">
+                <div class="new-wrapper">
+                    <div class="party">
+                        <h2>Create A New Party</h2>
+                        <div class="content">
+
+                            <form action="" class="signup-form">
+                                <p class="edit-p">Party Name</p>
+                                <input type="text" name="partyname" placeholder="Party name">
+                                <p class="edit-p">Headquaters</p>
+                                <input type="text" name="address" placeholder="Address">
+                                <fieldset>
+                                    <legend>Party Logo</legend>
+                                    <input type="file" name="pary Logo" accept="image/*">
+                                </fieldset>
+
+                            </form>
+
+                        </div>
+                        <div class="actions">
+                            <button>Save</button>
+                        </div>
+                    </div>
+                    <div class="candidate">
+                        <h2>Create A New Candidate</h2>
+                        <div class="content">
+
+                            <form action="" class="signup-form">
+                                <p class="edit-p">Fullname</p>
+                                <input type="text" name="cadidate" placeholder="Jimi Agbaje">
+                                <p class="edit-p">Party</p>
+                                <input type="text" name="party" placeholder="YPP">
+                                <p class="edit-p">Office</p>
+                                <input type="text" name="office" placeholder="Governor">
+                                <p class="edit-p">State</p>
+                                <input type="text" name="state" placeholder="Lagos">
+                                <p class="edit-p">LGA</p>
+                                <input type="text" name="lGA" placeholder="Local Government Area">                         
+
+                            </form>
+
+                        </div>
+                        <div class="actions">
+                            <button>Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
@@ -271,11 +378,9 @@
             evt.currentTarget.className += " active";
         }
 
-        // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
     </script>
 
 </body>
 
 </html>
-
