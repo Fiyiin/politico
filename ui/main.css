@@ -2,6 +2,8 @@
 :root {
     box-sizing: border-box;
     font-size: calc(1vw + 0.6em);
+    font-family: circular std book, sans-serif;
+    color: #40495F;
 }
 
 *,
@@ -20,6 +22,7 @@
 
 body {
     width: 100%;
+    
 }
 
 h1 {
@@ -43,6 +46,7 @@ h3 {
     line-height: 43px;
     text-align: center;
     margin-top: 30px;
+    font-size: 25px;
 }
 
 .btnLearnMore {
@@ -65,8 +69,8 @@ h3 {
     background-color: #EBB044;
     border-radius: 2px;
     width: 120px;
-    height: 50px;
-    line-height: 50px;
+    height: 53px;
+    line-height: 53px;
     text-align: center;
     font-weight: 400;
     font-family: Circular Std book;
@@ -77,25 +81,65 @@ h3 {
 a {
     text-decoration: none;
 }
+
+
 /*------nav-------*/
-.nav {
-    margin-top: 1em;
+
+
+.site-nav {
+    display: flex;
+    padding: 1em 0 ;
+    list-style-type: none;
+    
 }
 
-.nav > a {
-    color: aqua;
-    vertical-align: sub;
-}
-.pages {
-    float: right;
-    text-align: right;
+.site-nav > li {
+    margin-top: 0;
 }
 
-.pages a {
-    margin-left: 75px;
-
+.site-nav > li > a {
+    display: block;
+    padding: .5em 1em;
+    color: black;
+    text-decoration: none;
 }
 
+.site-nav > li + li {
+    margin-left: 1.5em;
+}
+
+.site-nav > .nav-left {
+    margin-right: auto;
+}
+
+.site-nav > li:first-child > a {
+    font-family: circular std bold;
+    color: #EBB044;
+    font-size: 34px;
+    vertical-align: middle;
+    padding: 0;
+}
+
+.site-nav > li:nth-child(2) > a{
+    font-family: lato thin, sans-serif;
+    color: #3ABABA;
+}
+
+.site-nav > li:nth-child(3) > a{
+    font-family: lato thin, sans-serif;
+    color: #3ABABA;
+}
+
+.site-nav > li:nth-child(4) > a{
+    font-family: lato thin, sans-serif;
+    color: #3ABABA; 
+}
+
+.site-nav > li:last-child > a{
+    font-family: circular std book, sans-serif;
+    color: white;
+    background: #EBB044
+}
 .landingWrapper {
     width: 83%;
     margin: auto
@@ -108,10 +152,14 @@ a {
 }
 
 .contentLeft {
-    flex: 0 0  55%;
+    flex: 0 0 55%;
     margin-top: 100px
 }
 
+.contentLeft h1 {
+    font-family: circular std book, sans-serif;
+    color: #40495F
+}
 .contentRight {
     flex: 0 0 45%;
 }
@@ -192,9 +240,7 @@ a {
     grid-template-columns: 1fr 1fr;
 }
 
-.callToAction{
-   
-}
+.callToAction {}
 
 .btnCTA {
     display: block;
@@ -229,6 +275,9 @@ footer p {
 
 }
 
+
+/*-------Login Modal*/
+
 .modal {
     display: none;
 }
@@ -239,7 +288,7 @@ footer p {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(43,65 , 221, 0.5)
+    background-color: rgba(43, 65, 221, 0.5)
 }
 
 .modal-body {
@@ -248,26 +297,27 @@ footer p {
     bottom: 2em;
     right: 30%;
     left: 30%;
-    padding: 2em 3em;
-    background-color: aquamarine;
-    overflow: auto;
+    background-color: #70A3C5;
+    overflow: hidden;
 }
 
 .modal-close {
     cursor: pointer;
 }
 
-input[type=text], input[type=password] {
+input[type=text],
+input[type=password] {
     width: 90%;
     padding: 12px 20px;
-    margin: 8px 26px;
+    margin: 8px 19px;
     display: inline-block;
     border: 1px solid #ccc;
 }
 
 input[type=checkbox] {
-    margin: 26px 30px;
+    margin: 26px 8px 26px 30px;
 }
+
 button {
     background-color: #4CAF50;
     color: white;
@@ -286,7 +336,7 @@ button:hover {
     text-decoration: none;
     float: right;
     margin-right: 34px;
-    margin-top: 26px;
+    margin-top: 22px;
 }
 
 .imgContainer {
@@ -310,7 +360,8 @@ button:hover {
     font-weight: bold;
 }
 
-.modal-close:hover,.modal-close:focus {
+.modal-close:hover,
+.modal-close:focus {
     color: red;
     cursor: pointer;
 }
@@ -318,7 +369,90 @@ button:hover {
 .animate {
     animation: zoom 0.6s
 }
+
 @keyframes zoom {
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+
+
+/*---------Sign up---------*/
+
+.bg-image {
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/Group%20137.svg);
+    background-size: cover;
+    background-position: ;
+    overflow: hidden;
+}
+.form-container {
+    max-width: 400px;
+    overflow: hidden;
+    margin: 10px auto;
+    margin-top: 50px;
+    padding: 10px 20px;
+    background: #3ABABA;
+    border-radius: 8px;
+    border: 1px solid #EBB044;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2)
+}
+
+.form-container * + * {
+    margin-top: .5em;
+}
+
+.form-container h1 {
+    margin: 0;
+    padding: 0 0 10px;
+    text-align: center;
+}
+
+.signup-form > * {
+    font-family: lato thin, sans-serif;
+}
+.form-container p {
+    font-weight: bold;
+}
+
+.form-container input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container input[type="email"],
+.form-containerinput[type="number"] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #1c8adb;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.form-container input[type="submit"]:hover {
+    cursor: pointer;
+    background: #39dc79;
+    color: #000;
 }
