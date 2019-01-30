@@ -60,6 +60,7 @@ h3 {
     line-height: 43px;
     text-align: center;
     margin-top: 30px;
+    margin: auto;
 }
 
 .btnSignup {
@@ -142,6 +143,21 @@ a {
     background: #EBB044
 }
 
+@media (max-width: 420px) {
+    .site-nav > li:first-child > a {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .site-nav > li:nth-child(2) > a,
+    .site-nav > li:nth-child(3) > a {
+        display: none;
+    }
+}
+
+/*------Section one----*/
 .landingWrapper {
     width: 83%;
     margin: auto
@@ -151,6 +167,12 @@ a {
     width: 83%;
     margin-top: 150px;
     display: flex;
+}
+
+@media (max-width: 420px) {
+    .landingContent {
+        margin-top: 50px;
+    }
 }
 
 .contentLeft {
@@ -163,36 +185,107 @@ a {
     color: #40495F
 }
 
+@media (max-width: 420px) {
+    .contentLeft {
+        display: none;
+    }
+}
+
 .contentRight {
     flex: 0 0 45%;
 }
 
+.voters {}
+
+@media (max-width: 420px) {
+    .voters {
+        width: 300px;
+    }
+}
+
 .about {
     width: 83%;
+    margin: auto;
+    margin-top: 150px;
 }
 
 .aboutContent {
     width: 83%;
     display: flex;
+    align-content: center;
+}
+
+@media (max-width: 420px) {
+    .aboutContent {
+        display: block;
+        width: 100%;
+    }
 }
 
 .aContentLeft {
-    flex: 0 0 35%;
+    flex: 0 0 55%;
+}
+
+@media (max-width: 420px) {
+    .aContentLeft {
+        display: none;
+    }
 }
 
 .aContentRight {
-    flex: 0 0 65%;
-    margin-top: 250px;
+    flex: 0 0 55%;
+    margin-top: 135px;
+    align-self: center
 }
+
+@media (max-width: 420px) {
+    .aContentRight {
+        display: block;
+        text-align: center;
+        background-color: #70A3C5;
+        padding: 35px 5px
+    }
+}
+
+@media (max-width: 420px) {
+    .aContentRight h1 {
+        font-size: 25px;
+        color: white;
+    }
+
+    .aContentRight a {
+        font-size: 25px;
+        color: white;
+        margin: auto;
+        margin-top: 15px;
+        border-radius: 5px;
+    }
+}
+
 
 .services {
     width: 83%;
     margin: auto;
     display: grid;
     grid-template-rows: 20% 80%;
-    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
     margin: 100px;
+    grid-template-columns: ;
+}
+
+@media (max-width: 420px) {
+    .services {
+        display: block;
+        margin: auto;
+        margin-top: 75px;
+    }
+
+    .services > h1 {
+        display: block;
+        margin: auto;
+        margin-top: 75px;
+        font-size: 30px;
+    }
 }
 
 .services h1 {
@@ -229,17 +322,27 @@ a {
     margin: auto;
     text-align: center;
     display: grid;
-    grid-auto-flow: 20% 40% 40%;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 10px;
     text-align: center;
 }
+
+
 
 .more h1 {
     grid-column: 1 / 4;
     grid-row: span 1;
     text-align: center;
     margin-bottom: 50px;
+}
+
+@media (max-width: 420px) {
+    .more {
+        display: block;
+    }
+
+    .more h1 {
+        font-size: 30px;
+        margin-top: 1.5em;
+    }
 }
 
 .more h3,
@@ -261,33 +364,101 @@ a {
     margin-bottom: 1.5em;
 }
 
+
+/*-------Footer-------*/
 footer {
-    width: 83%;
-    margin: auto;
-    margin-top: 10em;
-    margin-bottom: 1.5em;
-    font-family: circular std bold;
-    font-size: 15px;
-    color: #EBB044;
+    width: 100%;
+    display: inline-block;
+    margin: 0;
+    margin-top: 5em;
+    height: 70px;
+    background-color: #587BC9;
+    font-family: circular std bold, sans-serif;
+    font-size: 20px;
 }
 
-footer p {
-    display: inline;
+.signup-footer {
+    margin-top: 15px;
 }
 
-.footer-pages {
+footer .copyright {
+    width: 50%;
+    float: left;
+}
+
+@media (max-width: 600px) {
+    footer .copyright {
+        width: 100%;
+    }
+}
+
+footer .copyright p {
+    padding-left: 10%;
+    color: white;
+    font-size: 0.7em;
+    line-height: 70px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    footer .copyright p {
+        text-align: center;
+        padding: 0;
+    }
+}
+
+footer .footer-pages {
+    width: 50%;
     float: right;
-    text-align: right;
 }
 
-.footer-pages > a {
-    margin-left: 1.5em;
-    color: #EBB044;
+@media (max-width: 600px) {
+    footer .footer-pages {
+        width: 100%;
+        background-color: #7185b0;
+    }
+}
+
+footer .footer-pages a {
+    float: left;
+    line-height: 70px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-family: circular std bold, sans-serif;
+    font-size: 15px;
+}
+
+footer .footer-pages a:hover {
+    background-color: #c9c058;
+}
+
+.contact {
+    width: 20%;
+}
+
+.about-us {
+    width: 20%;
+}
+
+.terms {
+
+    width: 20%;
+}
+
+.home {
+    width: 20%;
+}
+
+.privacy {
+    width: 20%;
 }
 
 
 
-/*-------Login Modal*/
+
+/*-------Login Modal-------*/
 
 .modal {
     display: none;
@@ -311,6 +482,19 @@ footer p {
     overflow: hidden;
 }
 
+@media (max-width: 600px) {
+    .modal-body {
+        right: 10%;
+        left: 10%
+    }
+}
+
+@media (max-width: 420px) {
+    .modal-body {
+        width: 80%;
+    }
+}
+
 .modal-close {
     cursor: pointer;
 }
@@ -328,7 +512,7 @@ input[type=checkbox] {
     margin: 26px 8px 26px 30px;
 }
 
-button {
+.modal button {
     background-color: #4CAF50;
     color: white;
     padding: 15px;
@@ -341,7 +525,7 @@ button {
 
 }
 
-button:hover {
+.modal button:hover {
     opacity: 0.8;
 }
 
@@ -403,7 +587,7 @@ button:hover {
     background-image: url(images/Group%20137.svg);
     background-size: cover;
     background-position: ;
-    overflow: hidden;
+
 }
 
 .form-container {
@@ -481,7 +665,6 @@ button:hover {
     width: 100%;
     height: 75px;
     background-color: #3ABABA;
-
 }
 
 .admin-nav .nav-right {
@@ -512,7 +695,7 @@ button:hover {
 
 }
 
-.tab button {
+.tab-button {
     margin: 0;
     display: block;
     background-color: inherit;
@@ -523,14 +706,16 @@ button:hover {
     text-align: left;
     cursor: pointer;
     transition: 0.3s;
-    font-size: 17px;
+    padding: 15px;
+    font-family: circular std bold, sans-serif;
+    font-size: 20px
 }
 
-.tab button:hover {
+.tab-button:hover {
     background-color: #ddd;
 }
 
-.tab button.active {
+.tab-button.active {
     background-color: #ccc;
 }
 
@@ -620,82 +805,36 @@ button:hover {
 }
 
 
-.container th h1 {
-    font-weight: bold;
-    font-size: 1em;
-    text-align: left;
-    color: white;
-}
-
-.container td {
-    font-weight: normal;
-    font-size: 1em;
-
-    box-shadow: 0 2px 2px -2px #0E1119;
-}
-
-.container {
-    text-align: left;
-    overflow: hidden;
-    width: 100%;
-    margin: 0 auto;
-    display: table;
-    padding: 0 0 8em 0;
-}
-
-.container td,
-.container th {
-    padding-bottom: 2%;
-    padding-top: 2%;
-    padding-left: 2%;
-}
-
-
-.container tr:nth-child(odd) {
-    background-color: gray;
-}
-
-
-.container tr:nth-child(even) {
-    background-color: white;
-}
-
-.container th {
-    background-color: #1F2739;
-}
-
-.container td:first-child {}
-
-.container tr:hover {
-    background-color: ;
-}
-
-.container td:hover {}
-
-@media (max-width: 800px) {
-
-    .container td:nth-child(4),
-    .container th:nth-child(4) {
-        display: none;
-    }
-}
 
 
 /*----------User page-------*/
-.user-tab {
+.tabs {
     margin-top: 1.5em;
     display: flex;
 }
 
-.home-tab {
-    flex: 0 0 20%;
+.home-flex {
+    flex: 1 0 0;
     border: 2px solid #EBB044;
 }
 
 .tab-flex {
-    flex: 0 0 80%;
-    width: 100%;
+    flex: 4 0 0;
 }
+
+@media (max-width: 420px) {
+
+    .home-flex,
+    .admin-nav {
+        display: none;
+    }
+
+    .tabcontent {
+        padding: 0
+    }
+
+}
+
 
 .tab-flex .tabcontent {
     width: 100%;
@@ -785,4 +924,197 @@ label {
 
 .radio-button {
     margin: 25px 25px;
+}
+
+.navbar {
+    background-color: #3b5998;
+    overflow: hidden;
+    height: 63px;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+
+}
+
+.side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    opacity: 0.9;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.side-nav a {
+    padding: 10px 10px 10px 30px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #ccc;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-nav a:hover {
+    color: #fff;
+}
+
+.side-nav .btn-close {
+    position: absolute;
+    top: 0;
+    right: 22px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media(max-width:568px) {
+    .navbar-nav {
+        display: none
+    }
+}
+
+@media(min-width:568px) {
+    /*.open-slide{display:none}*/
+}
+
+/*-------User profile-------*/
+
+
+
+
+/*-------Table Styles -------*/
+
+.table-fill {
+    border-radius: 3px;
+    border-collapse: collapse;
+    height: auto;
+    margin: auto;
+    padding: 5px;
+    width: 100%;
+
+}
+
+th {
+    color: #D5DDE5;
+    background: #1b1e24;
+    border-bottom: 4px solid #9ea7af;
+    border-right: 1px solid #343a45;
+    font-size: 23px;
+    padding: 20px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+th:first-child {
+    border-top-left-radius: 3px;
+}
+
+th:last-child {
+    border-top-right-radius: 3px;
+    border-right: none;
+}
+
+tr {
+    border-top: 1px solid #C1C3D1;
+    border-bottom: 1px solid #C1C3D1;
+    color: #666B85;
+    font-size: 16px;
+
+}
+
+tr:hover td {
+    background: #4E5066;
+    color: #FFFFFF;
+    border-top: 1px solid #22262e;
+}
+
+tr:first-child {
+    border-top: none;
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+tr:nth-child(odd) td {
+    background: #EBEBEB;
+}
+
+tr:nth-child(odd):hover td {
+    background: #4E5066;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 3px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 3px;
+}
+
+td {
+    background: #FFFFFF;
+    padding: 15px;
+    text-align: left;
+    vertical-align: middle;
+    border-right: 1px solid #C1C3D1;
+}
+
+td:last-child {
+    border-right: 0px;
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+    table {
+        width: 100%;
+    }
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        position: absolute;
+        top: 20px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-column);
+        color: #000;
+        font-weight: bold;
+    }
+
 }

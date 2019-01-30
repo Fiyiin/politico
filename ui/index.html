@@ -13,14 +13,13 @@
         <div class="section">
             <div class="landing">
                 <div class="landingWrapper">
-                    
                     <nav>
                         <ul class="site-nav">
                             <li class="nav-left"><a href="/">Politico.</a></li>
                             <li><a href="/features">Services</a></li>
                             <li><a href="/pricing">About</a></li>
                             <li><a href="#" id="open">Login</a></li>
-                            <li >
+                            <li>
                                 <a href="public/signup.html" class="btnSignu">Sign Up</a>
                             </li>
                         </ul>
@@ -28,7 +27,7 @@
                     <div class="modal" id="modal">
                         <div class="backdrop">
                             <div class="modal-body">
-                                <form action="/home.html" method="post" class="animate">
+                                <form action="../public/home.html" class="animate">
                                     <div class="imgContainer">
                                         <span class="modal-close" id="close" title="close">&times;</span>
                                         <img src="images/1.png" alt="Avatar" class="avatar">
@@ -60,6 +59,7 @@
                             event.preventDefault();
                             modal.style.display = 'none';
                         });
+
                     </script>
 
                     <div class="landingContent">
@@ -82,7 +82,7 @@
             <div class="about">
                 <div class="aboutContent">
                     <div class="aContentLeft">
-                        <img src="images/politician.svg" alt="">
+                        <img src="images/speaker.svg" alt="politician">
                     </div>
                     <div class="aContentRight">
                         <h1>
@@ -128,9 +128,9 @@
         </div>
         <div class="section">
             <div class="more">
-               <a name="services"></a>
+                <a name="services"></a>
                 <h1>Any Election, Any Device, Any Location</h1>
-                <div >
+                <div class="service-card">
                     <img src="images/key.svg" alt="key" class="icon">
                     <h3>Amazing Support</h3>
                     <p>
@@ -139,7 +139,7 @@
                         can only vote once
                     </p>
                 </div>
-                <div>
+                <div class="service-card">
                     <img src="images/phone.svg" alt="phone" class="icon">
                     <h3>Amazing Support</h3>
                     <p>
@@ -148,7 +148,7 @@
                         can only vote once
                     </p>
                 </div>
-                <div>
+                <div class="service-card">
                     <img src="images/padlocl.svg" alt="key" class="icon">
                     <h3>Amazing Support</h3>
                     <p>
@@ -157,7 +157,7 @@
                         can only vote once
                     </p>
                 </div>
-                <div>
+                <div class="service-card">
                     <img src="images/accessibility.svg" alt="key" class="icon">
                     <h3>Amazing Support</h3>
                     <p>
@@ -166,7 +166,7 @@
                         can only vote once
                     </p>
                 </div>
-                <div >
+                <div class="service-card">
                     <img src="images/chart.svg" alt="key" class="icon">
                     <h3>Amazing Support</h3>
                     <p>
@@ -175,7 +175,7 @@
                         can only vote once
                     </p>
                 </div>
-                <div>
+                <div class="service-card">
                     <img src="images/support.svg" alt="key" class="icon">
                     <h3>Amazing Support</h3>
                     <p>
@@ -188,18 +188,18 @@
         </div>
 
         <footer>
-            <p>© 2018 Politico Inc.</p>
+            <div class="copyright">
+                <p>&copy 2019 - Politico Inc</p>
+            </div>
             <div class="footer-pages">
-                <a href="#">Home</a>
-                <a href="#">About Us</a>
-                <a href="#">Terms</a>
-                <a href="#">Contact</a>
-                <a href="#">Privacy</a>
+                <a href="#" class="home">Home</a>
+                <a href="#" class="about-us">About us</a>
+                <a href="#" class="terms">Terms</a>
+                <a href="#" class="contact">Contact</a>
+                <a href="#" class="privacy">Privacy</a>
             </div>
         </footer>
     </div>
 </body>
 
 </html>
-
-

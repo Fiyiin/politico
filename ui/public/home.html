@@ -17,8 +17,24 @@
             </li>
         </ul>
     </nav>
-    <div class="user-tab">
-        <div class="home-tab">
+    
+    <!-------For RWD------>
+    <nav class="navbar">
+        <span class="open-slide">
+            <a href="#" onclick="openSlideMenu()">
+                <svg width="30" height="30">
+                    <path d="M0,5 30,5" stroke="#fff" stroke-width="5" />
+                    <path d="M0,14 30,14" stroke="#fff" stroke-width="5" />
+                    <path d="M0,23 30,23" stroke="#fff" stroke-width="5" />
+                </svg>
+            </a>
+        </span>
+
+    </nav>
+
+    <div id="side-menu" class="side-nav">
+        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+        <div class="home-ab">
             <div class="admin-container">
                 <img src="../images/1.png" alt="logo" class="avatar">
                 <div class="card-content">
@@ -27,9 +43,43 @@
                 </div>
             </div>
 
-            <button class="tablinks" onclick="openTab(event, 'Party')" id="defaultOpen">Party</button>
-            <button class="tablinks" onclick="openTab(event, 'Candidate')">Offices</button>
-            <button class="tablinks" onclick="openTab(event, 'Vote')">Vote</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Party')" id="defaultOpen">Party</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Candidate')">Offices</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Vote')">Vote</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Profile')">Profile</button>
+            <a href="#">Log out</a>
+        </div>
+
+    </div>
+
+    <script>
+        function openSlideMenu(){
+      document.getElementById('side-menu').style.width = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+    }
+
+    function closeSlideMenu(){
+      document.getElementById('side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+  </script>
+   
+   <!-------For RWD------>
+   
+    <div class="tabs">
+        <div class="home-flex">
+            <div class="admin-container">
+                <img src="../images/1.png" alt="logo" class="avatar">
+                <div class="card-content">
+                    <h3>Oye Gbenga</h3>
+                    <h4>oyed@politico.com</h4>
+                </div>
+            </div>
+
+            <button class="tablinks tab-button" onclick="openTab(event, 'Party')" id="defaultOpen">Party</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Candidate')">Offices</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Vote')">Vote</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Profile')">Profile</button>
         </div>
         <div class="tab-flex">
             <div id="Party" class="tabcontent">
@@ -43,10 +93,6 @@
                                     <p>Party Name</p>
                                     <p>Hq Address</p>
                                 </div>
-                                <div>
-                                    <a href="#">Edit</a>
-                                    <a href="#">Delete</a>
-                                </div>
                             </div>
                         </div>
                         <div class="flex-column">
@@ -56,10 +102,7 @@
                                     <p>Party Name</p>
                                     <p>Hq Address</p>
                                 </div>
-                                <div>
-                                    <a href="#">Edit</a>
-                                    <a href="#">Delete</a>
-                                </div>
+
                             </div>
                         </div>
                         <div class="flex-column">
@@ -69,10 +112,7 @@
                                     <p>Party Name</p>
                                     <p>Hq Address</p>
                                 </div>
-                                <div>
-                                    <a href="#">Edit</a>
-                                    <a href="#">Delete</a>
-                                </div>
+
                             </div>
                         </div>
                         <div class="flex-column">
@@ -82,10 +122,7 @@
                                     <p>Party Name</p>
                                     <p>Hq Address</p>
                                 </div>
-                                <div>
-                                    <a href="#">Edit</a>
-                                    <a href="#">Delete</a>
-                                </div>
+
                             </div>
                         </div>
                         <div class="flex-column">
@@ -95,10 +132,7 @@
                                     <p>Party Name</p>
                                     <p>Hq Address</p>
                                 </div>
-                                <div>
-                                    <a href="#">Edit</a>
-                                    <a href="#">Delete</a>
-                                </div>
+
                             </div>
                         </div>
 
@@ -108,7 +142,7 @@
             </div>
 
             <div id="Candidate" class="tabcontent">
-                <table class="container">
+                <table class="table-fill">
                     <thead>
                         <tr>
                             <th>
@@ -129,34 +163,34 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="hover-body">
                         <tr>
-                            <td>Lindsey Hope</td>
-                            <td>Fedral</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
+                            <td data-column="Candidate" >Lindsey Hope</td>
+                            <td data-column="Office" >Fedral</td>
+                            <td data-column="Party" >N/A</td>
+                            <td data-column="State" >N/A</td>
+                            <td data-column="LGA" >N/A</td>
                         </tr>
                         <tr>
-                            <td>Carson Billy</td>
-                            <td>Fedral</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
+                            <td data-column="Candidate" >Carson Billy</td>
+                            <td data-column="Office" >Fedral</td>
+                            <td data-column="Party" >N/A</td>
+                            <td data-column="State" >N/A</td>
+                            <td data-column="LGA" >N/A</td>
                         </tr>
                         <tr>
-                            <td>John Tosin</td>
-                            <td>Fedral</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
+                            <td data-column="Candidate" >John Tosin</td>
+                            <td data-column="Office" >Fedral</td>
+                            <td data-column="Party" >N/A</td>
+                            <td data-column="State" >N/A</td>
+                            <td data-column="LGA" >N/A</td>
                         </tr>
                         <tr>
-                            <td>Gbenga Hillton</td>
-                            <td>Fedral</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
+                            <td data-column="Candidate" >Gbenga Hillton</td>
+                            <td data-column="Office" >Fedral</td>
+                            <td data-column="Party" >N/A</td>
+                            <td data-column="State" >N/A</td>
+                            <td data-column="LGA" >N/A</td>
                         </tr>
 
                     </tbody>
@@ -169,41 +203,85 @@
                     <div class="row">
                         <div class="flex-column">
                             <div class="vote-card">
-                             <h2>Presidential Election</h2>
-                              <div class="radio-button">
-                                 <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Kingsley Moghalu</span></label>
-                               <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Atiku Abubarkar</span></label>
-                               <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Muhamadu Buhari</span></label> 
-                              </div>
-                              <button>Submit Vote</button>
+                                <h2>Presidential Election</h2>
+                                <div class="radio-button">
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Kingsley Moghalu</span></label>
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Atiku Abubarkar</span></label>
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Muhamadu Buhari</span></label>
+                                </div>
+                                <button>Submit Vote</button>
                             </div>
                         </div>
                         <div class="flex-column">
                             <div class="vote-card">
-                             <h2>Presidential Election</h2>
-                              <div class="radio-button">
-                                 <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Kingsley Moghalu</span></label>
-                               <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Atiku Abubarkar</span></label>
-                               <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Muhamadu Buhari</span></label> 
-                              </div>
-                              <button>Submit Vote</button>
+                                <h2>Presidential Election</h2>
+                                <div class="radio-button">
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Kingsley Moghalu</span></label>
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Atiku Abubarkar</span></label>
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Muhamadu Buhari</span></label>
+                                </div>
+                                <button>Submit Vote</button>
                             </div>
                         </div>
                         <div class="flex-column">
                             <div class="vote-card">
-                             <h2>Presidential Election</h2>
-                              <div class="radio-button">
-                                 <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Kingsley Moghalu</span></label>
-                               <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Atiku Abubarkar</span></label>
-                               <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Muhamadu Buhari</span></label> 
-                              </div>
-                              <button>Submit Vote</button>
+                                <h2>Presidential Election</h2>
+                                <div class="radio-button">
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Kingsley Moghalu</span></label>
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Atiku Abubarkar</span></label>
+                                    <label class="other"><input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><span>Muhamadu Buhari</span></label>
+                                </div>
+                                <button>Submit Vote</button>
                             </div>
                         </div>
 
                     </div>
                 </div>
 
+            </div>
+
+            <div id="Profile" class="tabcontent">
+                <div class="user-profile">
+                    
+                    <table class="table-fill">
+                        <thead>
+                            <tr>
+                                <th  >Candidate</th>
+                                <th  >Office</th>
+                                <th  >Party</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-hover">
+                            <tr>
+                                <td data-column="Candidate"  >Carson Billy</td>
+                                <td data-column="Office"  >Presidency</td>
+                                <td data-column="Party"  >PDP</td>
+                            </tr>
+                            <tr>
+                                <td data-column="Candidate"  >Carson Billy</td>
+                                <td data-column="Office"  >Presidency</td>
+                                <td data-column="Party"  >PDP</td>
+                            </tr>
+                            <tr>
+                                <td data-column="Candidate"  >Carson Billy</td>
+                                <td data-column="Office"  >Presidency</td>
+                                <td data-column="Party"  >PDP</td>
+                            </tr>
+                            <tr>
+                                <td data-column="Candidate"  >Carson Billy</td>
+                                <td data-column="Office"  >Presidency</td>
+                                <td data-column="Party"  >PDP</td>
+                            </tr>
+                            <tr>
+                                <td data-column="Candidate"  >Carson Billy</td>
+                                <td data-column="Office"  >Presidency</td>
+                                <td data-column="Party"  >PDP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
             </div>
         </div>
 
