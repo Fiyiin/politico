@@ -23,7 +23,6 @@
 body {
     width: 100%;
     background-color: #eee;
-
 }
 
 #fullpage {
@@ -94,7 +93,6 @@ h3 {
     width: inherit;
     font-size: 20px;
     margin-top: 10px;
-
 }
 
 a {
@@ -805,7 +803,6 @@ input[type=checkbox] {
 .profile-content p {
     margin: 5px 0 0;
     font-size: 16px;
-
 }
 
 .profile ul li {
