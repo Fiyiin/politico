@@ -22,8 +22,11 @@
 
 body {
     width: 100%;
-    background-color: ghostwhite;
+    background-color: #eee;
+}
 
+#fullpage {
+    background-color: white;
 }
 
 h1 {
@@ -80,17 +83,16 @@ h3 {
 }
 
 .submit {
-  background-color: #145566; 
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
+    background-color: #145566;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
     width: inherit;
-  font-size: 20px;
+    font-size: 20px;
     margin-top: 10px;
-
 }
 
 a {
@@ -124,7 +126,7 @@ a {
     margin-left: 1.5em;
 }
 
-.site-nav > .nav-left {
+.nav-left {
     margin-right: auto;
 }
 
@@ -161,13 +163,12 @@ a {
     .site-nav > li:first-child > a {
         font-size: 25px;
     }
-}
-
-@media (max-width: 420px) {
-
     .site-nav > li:nth-child(2) > a,
     .site-nav > li:nth-child(3) > a {
         display: none;
+    }
+    .result-nav .site-nav > li:nth-child(3) > a{
+        display: block;
     }
 }
 
@@ -802,7 +803,6 @@ input[type=checkbox] {
 .profile-content p {
     margin: 5px 0 0;
     font-size: 16px;
-    
 }
 
 .profile ul li {
@@ -997,7 +997,7 @@ label {
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
     margin-right: 70px;
     margin-bottom: 25px;
-     background-color: white;
+    background-color: white;
 }
 
 .vote-card h2 {
@@ -1181,4 +1181,90 @@ td:last-child {
         font-weight: bold;
     }
 
+}
+
+.result h2 {
+  color: #333;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.015em;
+  margin-bottom: 36px;
+  max-width: 600px;
+}
+.result h2::after {
+  background: #d60c8c;
+  content: "";
+  display: block;
+  height: 3px;
+  margin: 15px 0;
+  width: 50px;
+}
+
+.result-wrapper {
+  max-width: 90%;
+  margin: 1.5em auto;
+  padding: 1rem;
+}
+
+/* Flex Container */
+.result .flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.result {
+  margin-bottom: 4rem;
+}
+.result .row {
+  margin-bottom: 1rem;
+}
+.result-title{
+    font-size: 20px
+    
+}
+.result-item {
+  background-color: #fff;
+  border-right: 1px solid #ebeff6;
+  border-bottom: 1px solid #ebeff6;
+  flex-grow: 1;
+  flex-basis: 100%;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+.result-item:last-child {
+  border-right: none;
+}
+@media screen and (min-width: 40em) {
+  .result-item {
+    flex-basis: 20%;
+  }
+}
+.result-label {
+  color: #999;
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 0.675rem;
+}
+.result-party {
+  color: #525252;
+  font-size: 1rem;
+}
+.result-votes {
+  color: #525252;
+  font-size: 2.25rem;
+}
+.winner {
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+  padding-left: 10px;
+  vertical-align: middle;
+}
+.legend {
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+  padding-left: 30px;
+  vertical-align: 1px;
 }
