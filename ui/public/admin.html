@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../main.css">
+</head>
+
+<body>
+    <nav>
+        <ul class="admin-nav">
+            <li class="nav-right">
+                <a href="/about">log out</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="tabbed-display">
+    <div class="tab">
+        <div class="admin-container">
+            <img src="../images/1.png" alt="logo" class="avatar">
+            <div class="card-content">
+                <h3>Oye Gbenga</h3>
+                <h4>Admin</h4>
+            </div>
+        </div>
+
+        <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Party</button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')">Offices</button>
+    </div>
+
+    <div id="London" class="tabcontent">
+       <div class="new-party">
+           <a href="#">Create New Party</a>
+       </div>
+        
+        <div class="party-container">
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="../images/download.jpg" class="img-card">
+                        <div>
+                            <p>Party Name</p>
+                            <p>Hq Address</p>
+                        </div>
+                        <div>
+                            <a href="#">Edit</a>
+                            <a href="#">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="../images/download.jpg" class="img-card">
+                        <div>
+                            <p>Party Name</p>
+                            <p>Hq Address</p>
+                        </div>
+                        <div>
+                            <a href="#">Edit</a>
+                            <a href="#">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="../images/download.jpg" class="img-card">
+                        <div>
+                            <p>Party Name</p>
+                            <p>Hq Address</p>
+                        </div>
+                        <div>
+                            <a href="#">Edit</a>
+                            <a href="#">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="../images/download.jpg" class="img-card">
+                        <div>
+                            <p>Party Name</p>
+                            <p>Hq Address</p>
+                        </div>
+                        <div>
+                            <a href="#">Edit</a>
+                            <a href="#">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="../images/download.jpg" class="img-card">
+                        <div>
+                            <p>Party Name</p>
+                            <p>Hq Address</p>
+                        </div>
+                        <div>
+                            <a href="#">Edit</a>
+                            <a href="#">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <div id="Paris" class="tabcontent">
+       <div class="new-party">
+           <a href="#">Create New Office</a>
+       </div>
+        <table class="container">
+            <thead>
+                <tr>
+                    <th>
+                        <h1>Political Office</h1>
+                    </th>
+                    <th>
+                        <h1>Government Level</h1>
+                    </th>
+                    <th>
+                        <h1>State</h1>
+                    </th>
+                    <th>
+                        <h1>Local Government</h1>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Presdency</td>
+                    <td>Fedral</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Presdency</td>
+                    <td>Fedral</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Presdency</td>
+                    <td>Fedral</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Presdency</td>
+                    <td>Fedral</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
+</body>
+
+</html>
+
