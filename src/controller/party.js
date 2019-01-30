@@ -1,5 +1,5 @@
 import politicalParty from '../models/party';
-
+import partyById from '../helpers/helpers';
 
 class Party {
   /**
@@ -39,15 +39,8 @@ class Party {
 
   static getPartyById(req, res) {
     const { id } = req.params;
-
-    const partyById = (data, ID) => data.filter((party) => {
-      const { id } = party;
-
-      return id.toString() === ID.toString();
-    });
-
     const findParty = partyById(politicalParty, id);
-
+    console.log(findParty[0].name);
     if (findParty.length === 0) {
       res.status(404).json({
         status: 404,
@@ -56,10 +49,32 @@ class Party {
     } else {
       res.status(200).json({
         status: 200,
-        message: findParty,
+        findParty,
       });
     }
   }
+
+  static editParty(req, res) {
+    const { id } = req.params;
+    const { name, hqAddress, logoUrl } = req.body;
+    const findParty = partyById(politicalParty, id);
+
+    if (findParty.length === 0) {
+      res.status(404).json({
+        status: 404,
+        error: "Can't find any Party with that Id",
+      });
+    } else {
+      findParty[0].name = name || '';
+      findParty[0].hqAddress = hqAddress;
+      findParty[0].logoUrl = logoUrl;
+      res.status(200).json({
+        status: 200,
+        findParty,
+      });
+    }
+  }
+
 }
 
 export default Party;
