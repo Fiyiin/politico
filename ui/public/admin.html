@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin</title>
+    <title>Home</title>
     <link rel="stylesheet" href="../main.css">
 </head>
 
@@ -17,150 +17,243 @@
             </li>
         </ul>
     </nav>
+
+    <!-------For RWD------>
+    <nav class="navbar">
+        <span class="open-slide">
+            <a href="#" onclick="openSlideMenu()">
+                <svg width="30" height="30">
+                    <path d="M0,5 30,5" stroke="#fff" stroke-width="5" />
+                    <path d="M0,14 30,14" stroke="#fff" stroke-width="5" />
+                    <path d="M0,23 30,23" stroke="#fff" stroke-width="5" />
+                </svg>
+            </a>
+        </span>
+
+    </nav>
+
+    <div id="side-menu" class="side-nav">
+        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+        <div class="home-ab">
+            <div class="admin-container">
+                <img src="../images/1.png" alt="logo" class="avatar">
+                <div class="card-content">
+                    <h3>Oye Gbenga</h3>
+                    <h4>Admin</h4>
+                </div>
+            </div>
+
+            <button class="tablinks tab-button" onclick="openTab(event, 'Party')" id="defaultOpen">Party</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Candidate')">Offices</button>
+            <a href="#">Log out</a>
+        </div>
+
+    </div>
+
+    <script>
+        function openSlideMenu(){
+      document.getElementById('side-menu').style.width = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+    }
+
+    function closeSlideMenu(){
+      document.getElementById('side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+  </script>
+
+    <!-------For RWD------>
+
     <div class="tabs">
-    <div class="home-flex">
-        <div class="admin-container">
-            <img src="../images/1.png" alt="logo" class="avatar">
-            <div class="card-content">
-                <h3>Oye Gbenga</h3>
-                <h4>Admin</h4>
+        <div class="home-flex">
+            <div class="admin-container">
+                <img src="../images/1.png" alt="logo" class="avatar">
+                <div class="card-content">
+                    <h3>Oye Gbenga</h3>
+                    <h4>oyed@politico.com</h4>
+                </div>
             </div>
-        </div>
 
-        <button class="tablinks tab-button" onclick="openTab(event, 'Party')" id="defaultOpen">Party</button>
-        <button class="tablinks tab-button" onclick="openTab(event, 'Offices')">Offices</button>
-    </div>
-    <div class="tab-flex">
-    <div id="Party" class="tabcontent">
-       <div class="new-party">
-           <a href="#">Create New Party</a>
-       </div>
-        
-        <div class="party-container">
-            <div class="row">
-                <div class="column">
-                    <div class="card">
-                        <img src="../images/download.jpg" class="img-card">
-                        <div>
-                            <p>Party Name</p>
-                            <p>Hq Address</p>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Party')" id="defaultOpen">Party</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Candidate')">Offices</button>
+        </div>
+        <div class="tab-flex">
+            <div id="Party" class="tabcontent">
+
+                <div class="party-container">
+                    <div class="row">
+                        <div class="profile">
+                            <div class="profile-header">
+                                <img src="../images/download.jpg" alt="">
+                            </div>
+                            <div class="profile-content">
+                                <img src="../images/download.jpg" alt="">
+                                <h1>APC</h1>
+                                <p>Party Hq</p>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="/about" onclick="">Edit</a>
+                                </li>
+                                <li>
+                                    <a href="/about">Delete</a>
+                                </li>
+                            </ul>
                         </div>
-                        <div>
-                            <a href="#">Edit</a>
-                            <a href="#">Delete</a>
+                        <div class="profile">
+                            <div class="profile-header">
+                                <img src="../images/download.jpg" alt="">
+                            </div>
+                            <div class="profile-content">
+                                <img src="../images/download.jpg" alt="">
+                                <h1>APC</h1>
+                                <p>Party Hq</p>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="/about">Edit</a>
+                                </li>
+                                <li>
+                                    <a href="/about">Delete</a>
+                                </li>
+                            </ul>
                         </div>
+                        <div class="profile">
+                            <div class="profile-header">
+                                <img src="../images/download.jpg" alt="">
+                            </div>
+                            <div class="profile-content">
+                                <img src="../images/download.jpg" alt="">
+                                <h1>APC</h1>
+                                <p>Party Hq</p>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="/about">Edit</a>
+                                </li>
+                                <li>
+                                    <a href="/about">Delete</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="profile">
+                            <div class="profile-header">
+                                <img src="../images/download.jpg" alt="">
+                            </div>
+                            <div class="profile-content">
+                                <img src="../images/download.jpg" alt="">
+                                <h1>APC</h1>
+                                <p>Party Hq</p>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="/about">Edit</a>
+                                </li>
+                                <li>
+                                    <a href="/about">Delete</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="profile">
+                            <div class="profile-header">
+                                <img src="../images/download.jpg" alt="">
+                            </div>
+                            <div class="profile-content">
+                                <img src="../images/download.jpg" alt="">
+                                <h1>APC</h1>
+                                <p>Party Hq</p>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="/about">Edit</a>
+                                </li>
+                                <li>
+                                    <a href="/about">Delete</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="profile">
+                            <div class="profile-header">
+                                <img src="../images/download.jpg" alt="">
+                            </div>
+                            <div class="profile-content">
+                                <img src="../images/download.jpg" alt="">
+                                <h1>APC</h1>
+                                <p>Party Hq</p>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="/about">Edit</a>
+                                </li>
+                                <li>
+                                    <a href="/about">Delete</a>
+                                </li>
+                            </ul>
+                        </div>
+
+
                     </div>
                 </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="../images/download.jpg" class="img-card">
-                        <div>
-                            <p>Party Name</p>
-                            <p>Hq Address</p>
-                        </div>
-                        <div>
-                            <a href="#">Edit</a>
-                            <a href="#">Delete</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="../images/download.jpg" class="img-card">
-                        <div>
-                            <p>Party Name</p>
-                            <p>Hq Address</p>
-                        </div>
-                        <div>
-                            <a href="#">Edit</a>
-                            <a href="#">Delete</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="../images/download.jpg" class="img-card">
-                        <div>
-                            <p>Party Name</p>
-                            <p>Hq Address</p>
-                        </div>
-                        <div>
-                            <a href="#">Edit</a>
-                            <a href="#">Delete</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="../images/download.jpg" class="img-card">
-                        <div>
-                            <p>Party Name</p>
-                            <p>Hq Address</p>
-                        </div>
-                        <div>
-                            <a href="#">Edit</a>
-                            <a href="#">Delete</a>
-                        </div>
-                    </div>
-                </div>
-                
+
             </div>
+
+            <div id="Candidate" class="tabcontent">
+                <table class="table-fill">
+                    <thead>
+                        <tr>
+                            <th>
+                                Candidate
+                            </th>
+                            <th>
+                                Office
+                            </th>
+                            <th>
+                                Party
+                            </th>
+                            <th>
+                                State
+                            </th>
+
+                            <th>
+                                LGA
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="hover-body">
+                        <tr>
+                            <td data-column="Candidate">Lindsey Hope</td>
+                            <td data-column="Office">Fedral</td>
+                            <td data-column="Party">N/A</td>
+                            <td data-column="State">N/A</td>
+                            <td data-column="LGA">N/A</td>
+                        </tr>
+                        <tr>
+                            <td data-column="Candidate">Carson Billy</td>
+                            <td data-column="Office">Fedral</td>
+                            <td data-column="Party">N/A</td>
+                            <td data-column="State">N/A</td>
+                            <td data-column="LGA">N/A</td>
+                        </tr>
+                        <tr>
+                            <td data-column="Candidate">John Tosin</td>
+                            <td data-column="Office">Fedral</td>
+                            <td data-column="Party">N/A</td>
+                            <td data-column="State">N/A</td>
+                            <td data-column="LGA">N/A</td>
+                        </tr>
+                        <tr>
+                            <td data-column="Candidate">Gbenga Hillton</td>
+                            <td data-column="Office">Fedral</td>
+                            <td data-column="Party">N/A</td>
+                            <td data-column="State">N/A</td>
+                            <td data-column="LGA">N/A</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
         </div>
-
-    </div>
-
-    <div id="Offices" class="tabcontent">
-       <div class="new-party">
-           <a href="#">Create New Office</a>
-       </div>
-        <table class="container">
-            <thead>
-                <tr>
-                    <th>
-                        <h1>Political Office</h1>
-                    </th>
-                    <th>
-                        <h1>Government Level</h1>
-                    </th>
-                    <th>
-                        <h1>State</h1>
-                    </th>
-                    <th>
-                        <h1>Local Government</h1>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Presdency</td>
-                    <td>Fedral</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                </tr>
-                <tr>
-                    <td>Presdency</td>
-                    <td>Fedral</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                </tr>
-                <tr>
-                    <td>Presdency</td>
-                    <td>Fedral</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                </tr>
-                <tr>
-                    <td>Presdency</td>
-                    <td>Fedral</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                </tr>
-                
-            </tbody>
-        </table>
-    </div>
-        
-    </div>
 
     </div>
     <script>

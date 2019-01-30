@@ -22,6 +22,7 @@
 
 body {
     width: 100%;
+    background-color: ghostwhite;
 
 }
 
@@ -78,6 +79,19 @@ h3 {
     font-size: 20px;
 }
 
+.submit {
+  background-color: #145566; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+    width: inherit;
+  font-size: 20px;
+    margin-top: 10px;
+
+}
 
 a {
     text-decoration: none;
@@ -195,7 +209,6 @@ a {
     flex: 0 0 45%;
 }
 
-.voters {}
 
 @media (max-width: 420px) {
     .voters {
@@ -683,14 +696,9 @@ input[type=checkbox] {
 
 /*---------Tabbed Display--------*/
 
-.tabbed-display {
-    margin-top: 1.5em;
-}
 
 .tab {
     float: left;
-    border: 2px solid #ccc;
-    background-color: #f1f1f1;
     width: 20%;
 
 }
@@ -699,7 +707,7 @@ input[type=checkbox] {
     margin: 0;
     display: block;
     background-color: inherit;
-    color: black;
+    color: white;
     width: 100%;
     border: none;
     outline: none;
@@ -712,11 +720,11 @@ input[type=checkbox] {
 }
 
 .tab-button:hover {
-    background-color: #ddd;
+    background-color: #EBB044;
 }
 
 .tab-button.active {
-    background-color: #ccc;
+    background-color: #EBB044;
 }
 
 .tabcontent {
@@ -746,10 +754,82 @@ input[type=checkbox] {
 
 /*---------Party Tab-----*/
 
+
+.profile {
+    position: relative;
+    width: 325px;
+    text-transform: uppercase;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin-right: 50px;
+    margin-bottom: 20px;
+}
+
+.profile-header {
+    height: 135px;
+    overflow: hidden;
+    background: #e8decd;
+
+}
+
+.profile-header img {
+    width: 325px;
+
+}
+
+.profile-content {
+    padding: 0 30px 20px;
+    color: white;
+    text-align: center;
+    background: #2f363e;
+}
+
+.profile-content img {
+    margin-top: -75px;
+    width: 150px;
+    height: 150px;
+    border: 2px solid #e7e0cf;
+    border-radius: 100%;
+    background: #e7e0cf;
+}
+
+.profile-content h1 {
+    margin: 5px 0 0;
+    font-size: 24px;
+    color: white;
+    letter-spacing: 0.05em;
+}
+
+.profile-content p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    
+}
+
+.profile ul li {
+    display: flex;
+    flex: 0 1 50%;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #3e424d;
+    padding: 10px 10px;
+    color: #c54b30;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+ul span {
+    display: inline-block;
+    margin-left: 0.4em;
+    color: #a9a9a9;
+    font-weight: 300;
+    font-size: 0.8em;
+}
+
+
 .admin-container {
     width: 100%;
     height: 300px;
-    background: black;
+    background: #145566;
     display: grid;
     grid-template-rows: 60% 40%;
     color: white;
@@ -775,13 +855,10 @@ input[type=checkbox] {
 
 }
 
-.column {
-    width: 25%;
-}
-
 .row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 
@@ -815,7 +892,9 @@ input[type=checkbox] {
 
 .home-flex {
     flex: 1 0 0;
-    border: 2px solid #EBB044;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    background-color: #70A3C5;
+    color: white;
 }
 
 .tab-flex {
@@ -833,8 +912,17 @@ input[type=checkbox] {
         padding: 0
     }
 
+    .profile {
+        margin-right: 0;
+    }
+
 }
 
+@media (min-width: 420px) {
+    .navbar {
+        display: none;
+    }
+}
 
 .tab-flex .tabcontent {
     width: 100%;
@@ -842,9 +930,7 @@ input[type=checkbox] {
 
 }
 
-.flex-column {
-    margin-right: .5em;
-}
+
 
 label.other {
     color: #1194f6;
@@ -909,9 +995,9 @@ label {
     width: 420px;
     min-height: 320px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
-    padding-bottom: 10px;
     margin-right: 70px;
     margin-bottom: 25px;
+     background-color: white;
 }
 
 .vote-card h2 {
@@ -948,7 +1034,6 @@ label {
     top: 0;
     left: 0;
     background-color: #111;
-    opacity: 0.9;
     overflow-x: hidden;
     padding-top: 60px;
     transition: 0.5s;
@@ -1003,8 +1088,8 @@ label {
 }
 
 th {
-    color: #D5DDE5;
-    background: #1b1e24;
+    color: white;
+    background: #145566;
     border-bottom: 4px solid #9ea7af;
     border-right: 1px solid #343a45;
     font-size: 23px;
@@ -1013,52 +1098,31 @@ th {
     vertical-align: middle;
 }
 
-th:first-child {
-    border-top-left-radius: 3px;
-}
 
-th:last-child {
-    border-top-right-radius: 3px;
-    border-right: none;
-}
 
 tr {
     border-top: 1px solid #C1C3D1;
     border-bottom: 1px solid #C1C3D1;
     color: #666B85;
-    font-size: 16px;
+    font-size: 20px;
 
 }
 
 tr:hover td {
-    background: #4E5066;
+    background: #9E9E9C;
     color: #FFFFFF;
     border-top: 1px solid #22262e;
 }
 
-tr:first-child {
-    border-top: none;
-}
-
-tr:last-child {
-    border-bottom: none;
-}
 
 tr:nth-child(odd) td {
     background: #EBEBEB;
 }
 
 tr:nth-child(odd):hover td {
-    background: #4E5066;
+    background: #9E9E9C;
 }
 
-tr:last-child td:first-child {
-    border-bottom-left-radius: 3px;
-}
-
-tr:last-child td:last-child {
-    border-bottom-right-radius: 3px;
-}
 
 td {
     background: #FFFFFF;
