@@ -1,4 +1,4 @@
-import party from '../models/party';
+import politicalParty from '../models/party';
 
 
 class Party {
@@ -11,7 +11,7 @@ class Party {
 
   static createNewParty(req, res) {
     const newParty = req.body;
-    party.push(newParty);
+    politicalParty.push(newParty);
 
     return res.status(201).json({
       status: 201,
@@ -32,9 +32,33 @@ class Party {
     res.status(200).json({
       status: 200,
       data: [{
-        message: party,
+        message: politicalParty,
       }],
     });
+  }
+
+  static getPartyById(req, res) {
+    const { id } = req.params;
+
+    const partyById = (data, ID) => data.filter((party) => {
+      const { id } = party;
+
+      return id.toString() === ID.toString();
+    });
+
+    const findParty = partyById(politicalParty, id);
+
+    if (findParty.length === 0) {
+      res.status(404).json({
+        status: 404,
+        error: "Can't find any Party with that Id",
+      });
+    } else {
+      res.status(200).json({
+        status: 200,
+        message: findParty,
+      });
+    }
   }
 }
 
