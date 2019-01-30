@@ -1,18 +1,15 @@
 env:
-global:
-- CC_TEST_REPORTED_ID=df733ab0e62764d8a7330092a8b80f1ac954b017d3e8573f8ec66e62f0a26490
+  global:
+    - CC_TEST_REPORTER_ID=df733ab0e62764d8a7330092a8b80f1ac954b017d3e8573f8ec66e62f0a26490
 language: node_js
 node_js:
   - node
 addons:
-  chrome: stable
-service:
-  - postgres
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+  code_climate:
+    repo_token: df733ab0e62764d8a7330092a8b80f1ac954b017d3e8573f8ec66e62f0a26490
 script:
   - npm test
+before_script:
+  - npm install codeclimate-test-reporter istanbul -g
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - codeclimate-test-reporter < ./coverage/lcov.info
