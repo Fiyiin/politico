@@ -10,15 +10,24 @@ class Party {
    * @return {object} The party object
    */
   static createNewParty(req, res) {
-    const newParty = req.body;
-    politicalParty.push(newParty);
+    const { id } = req.body;
+    const party = findById(politicalParty, id);
 
-    return res.status(201).json({
-      status: 201,
-      data: [{
-        message: newParty,
-      }],
+    if (party.length === 0) {
+      const newParty = req.body;
+      politicalParty.push(newParty);
 
+      return res.status(201).json({
+        status: 201,
+        data: [{
+          data: newParty,
+        }],
+
+      });
+    }
+    return res.status(409).json({
+      status: 409,
+      error: 'Party with that Id already exists',
     });
   }
 
