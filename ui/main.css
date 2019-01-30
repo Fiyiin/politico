@@ -1,0 +1,324 @@
+/*------global stuffs-------*/
+:root {
+    box-sizing: border-box;
+    font-size: calc(1vw + 0.6em);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+}
+
+body {
+    width: 100%;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 100;
+    color: #40495F;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+.btnStarted {
+    display: block;
+    text-decoration: none;
+    color: #EBB044;
+    border: 2px solid #EBB044;
+    border-radius: 3px;
+    width: 175px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btnLearnMore {
+    display: block;
+    text-decoration: none;
+    color: white;
+    background-color: #587BC9;
+    border-radius: 2px;
+    width: 175px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btnSignup {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #EBB044;
+    border-radius: 2px;
+    width: 120px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: 400;
+    font-family: Circular Std book;
+    font-size: 20px;
+}
+
+
+a {
+    text-decoration: none;
+}
+/*------nav-------*/
+.nav {
+    margin-top: 1em;
+}
+
+.nav > a {
+    color: aqua;
+    vertical-align: sub;
+}
+.pages {
+    float: right;
+    text-align: right;
+}
+
+.pages a {
+    margin-left: 75px;
+
+}
+
+.landingWrapper {
+    width: 83%;
+    margin: auto
+}
+
+.landingContent {
+    width: 83%;
+    margin-top: 150px;
+    display: flex;
+}
+
+.contentLeft {
+    flex: 0 0  55%;
+    margin-top: 100px
+}
+
+.contentRight {
+    flex: 0 0 45%;
+}
+
+.about {
+    width: 83%;
+}
+
+.aboutContent {
+    width: 83%;
+    display: flex;
+}
+
+.aContentLeft {
+    flex: 0 0 35%;
+}
+
+.aContentRight {
+    flex: 0 0 65%;
+    margin-top: 250px;
+}
+
+.services {
+    width: 83%;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 20% 80%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin: 100px;
+}
+
+.services h1 {
+    grid-column: 1 / 4;
+    grid-row: span 1;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.point {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.img {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+
+.more {
+    width: 83%;
+    margin: auto;
+    text-align: center;
+    display: grid;
+    grid-auto-flow: 20% 40% 40%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.more h1 {
+    grid-column: 1 / 4;
+    grid-row: span 1;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.callToAction {
+    width: 83%;
+    margin: auto;
+    margin-top: 100px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.callToAction{
+   
+}
+
+.btnCTA {
+    display: block;
+    text-decoration: none;
+    color: white;
+    background-color: #587BC9;
+    border-radius: 2px;
+    width: 175px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer {
+    width: 83%;
+    margin: auto;
+    margin-bottom: 1.5em;
+}
+
+footer p {
+    display: inline;
+}
+
+.footerPages {
+    float: right;
+    text-align: right;
+}
+
+.footerPages.pages a {
+    margin-left: 25px;
+
+}
+
+.modal {
+    display: none;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(43,65 , 221, 0.5)
+}
+
+.modal-body {
+    position: fixed;
+    top: 3em;
+    bottom: 2em;
+    right: 30%;
+    left: 30%;
+    padding: 2em 3em;
+    background-color: aquamarine;
+    overflow: auto;
+}
+
+.modal-close {
+    cursor: pointer;
+}
+
+input[type=text], input[type=password] {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 26px;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+input[type=checkbox] {
+    margin: 26px 30px;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 26px;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.formFields a {
+    text-decoration: none;
+    float: right;
+    margin-right: 34px;
+    margin-top: 26px;
+}
+
+.imgContainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.modal-close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.modal-close:hover,.modal-close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+.animate {
+    animation: zoom 0.6s
+}
+@keyframes zoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politico Inc. | Home</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div id="fullpage">
+        <div class="section">
+            <div class="landing">
+                <div class="landingWrapper">
+                    <div class="nav">
+                        <a href="#">Politico</a>
+                        <div class="pages">
+                            <a href="#">Services</a>
+                            <a href="#">About</a>
+                            <a href="#" id="open">Login</a>
+                            <a href="#" class="btnSignup">Sign Up</a>
+                        </div>
+                    </div>
+                    <div class="modal" id="modal">
+                        <div class="backdrop">
+                            <div class="modal-body">
+                                <form action="" class="animate">
+                                    <div class="imgContainer">
+                                        <span class="modal-close" id="close" title="close">&times;</span>
+                                        <img src="images/1.png" alt="Avatar" class="avatar">
+                                        <h2>Login</h2>
+                                    </div>
+                                    <div class="formFields">
+                                        <input type="text" placeholder="Enter Username" name="uname">
+                                        <input type="password" placeholder="Enter Password" name="psw">
+                                        <button type="submit">Login</button>
+                                        <input type="checkbox"> Remember me
+                                        <a href="#">Forgot Password ?</a>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        const button = document.getElementById('open');
+                        const close = document.getElementById('close');
+                        const modal = document.getElementById('modal')
+
+                        button.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            modal.style.display = 'block';
+                        });
+
+                        close.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            modal.style.display = 'none';
+                        });
+                    </script>
+
+                    <div class="landingContent">
+                        <div class="contentLeft">
+                            <h1>
+                                Yes, you are in the right
+                                place. <br>
+                                For both Politicians and <br> Citizens alike.
+                            </h1>
+                            <a href="#" class="btnStarted">Get Started</a>
+                        </div>
+                        <div class="contentRight">
+                            <img src="images/voters.svg" alt="voters" class="voters">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="about">
+                <div class="aboutContent">
+                    <div class="aContentLeft">
+                        <img src="images/politician.svg" alt="">
+                    </div>
+                    <div class="aContentRight">
+                        <h1>
+                            We enable citizens give their mandate to politicians running for different government offices, while building trust in the process through transparency.
+                        </h1>
+                        <a href="#" class="btnLearnMore">Learn more</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="section">
+            <div class="services">
+                <h1>Our Voting Services</h1>
+                <div class="point">
+                    <img src="images/count.png" alt="Automatet Ballot Counts" class="img">
+                    <h3>Automatet Ballot Counts</h3>
+                    <p>
+                        Send your voters an email with secure,<br>
+                        single-use voting links that ensure
+                        only <br>authorized voters can vote, once
+                    </p>
+                </div>
+                <div class="point">
+                    <img src="images/election.png" alt="Online Elections" class="img">
+                    <h3>Online Elections</h3>
+                    <p>
+                        Send your voters an email with secure,
+                        single-use voting links that ensure
+                        only authorized voters can vote, once
+                    </p>
+                </div>
+                <div class="point">
+                    <img src="images/poll.png" alt="Online Polls" class="img">
+                    <h3>Online Polles</h3>
+                    <p>
+                        Send your voters an email with secure,
+                        single-use voting links that ensure
+                        only authorized voters can vote, once
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="more">
+                <h1>Any Election, Any Device, Any Location</h1>
+                <div class="icon">
+                    <img src="images/key.svg" alt="key">
+                    <h3>Amazing Support</h3>
+                    <p>
+                        Each voter has a unique "Voter ID"
+                        and "Voter Key" and
+                        can only vote once
+                    </p>
+                </div>
+                <div class="icon">
+                    <img src="images/phone.svg" alt="phone">
+                    <h3>Amazing Support</h3>
+                    <p>
+                        Each voter has a unique "Voter ID"
+                        and "Voter Key" and
+                        can only vote once
+                    </p>
+                </div>
+                <div class="icon">
+                    <img src="images/padlocl.svg" alt="key">
+                    <h3>Amazing Support</h3>
+                    <p>
+                        Each voter has a unique "Voter ID"
+                        and "Voter Key" and
+                        can only vote once
+                    </p>
+                </div>
+                <div class="icon">
+                    <img src="images/accessibility.svg" alt="key">
+                    <h3>Amazing Support</h3>
+                    <p>
+                        Each voter has a unique "Voter ID"
+                        and "Voter Key" and
+                        can only vote once
+                    </p>
+                </div>
+                <div class="icon">
+                    <img src="images/chart.svg" alt="key">
+                    <h3>Amazing Support</h3>
+                    <p>
+                        Each voter has a unique "Voter ID"
+                        and "Voter Key" and
+                        can only vote once
+                    </p>
+                </div>
+                <div class="icon">
+                    <img src="images/support.svg" alt="key">
+                    <h3>Amazing Support</h3>
+                    <p>
+                        Each voter has a unique "Voter ID"
+                        and "Voter Key" and
+                        can only vote once
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="callToAction">
+            <h1>Sign Up Now</h1>
+            <a href="#" class="btnCTA">Get Started</a>
+        </div>
+        <footer>
+            <p>© 2018 Politico Inc.</p>
+            <div class="footerPages">
+                <a href="#">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Terms</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy</a>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
