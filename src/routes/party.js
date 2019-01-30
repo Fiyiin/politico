@@ -8,7 +8,7 @@ const router = express.Router();
 const { checkAddParty, checkPartyById, checkEditParty } = validation;
 
 router.post('/', checkPartyById, checkAddParty, checkResult, ctrlParty.createNewParty);
-router.get('/', checkPartyById, checkResult, ctrlParty.getAllParties);
+router.get('/', checkResult, ctrlParty.getAllParties);
 router.get('/:id', checkPartyById, checkResult, ctrlParty.getPartyById);
 router.patch('/:id/name', checkPartyById, checkEditParty, checkResult, ctrlParty.editParty);
 router.delete('/:id', checkPartyById, checkResult, ctrlParty.deleteParty);
