@@ -2,6 +2,7 @@ import express from 'express';
 import logger from 'morgan';
 import bodyparser from 'body-parser';
 import partyRouter from './routes/party';
+import officeRouter from './routes/office';
 
 
 const app = express();
@@ -18,6 +19,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1/parties', partyRouter);
+app.use('/api/v1/offices', officeRouter);
+
 
 app.listen(port, () => console.log(`app running on port ${port}`));
 
