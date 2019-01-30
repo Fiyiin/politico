@@ -1,13 +1,16 @@
 import express from 'express';
 
 import ctrlParty from '../controller/party';
+import validation from '../middleware/validation/partyValidation';
+import checkResult from '../middleware/validation/validationResult';
 
 const router = express.Router();
+const { checkAddParty, checkPartyById, checkEditParty } = validation;
 
-router.post('/', ctrlParty.createNewParty);
-router.get('/', ctrlParty.getAllParties);
-router.get('/:id', ctrlParty.getPartyById);
-router.patch('/:id', ctrlParty.editParty);
-router.delete('/:id', ctrlParty.deleteParty);
+router.post('/', checkPartyById, checkAddParty, checkResult, ctrlParty.createNewParty);
+router.get('/', checkPartyById, checkResult, ctrlParty.getAllParties);
+router.get('/:id', checkPartyById, checkResult, ctrlParty.getPartyById);
+router.patch('/:id/name', checkPartyById, checkResult, ctrlParty.editParty);
+router.delete('/:id', checkPartyById, checkEditParty, checkResult, ctrlParty.deleteParty);
 
 export default router;
