@@ -1,5 +1,5 @@
-import politicalParty from '../models/party';
-import findById from '../helpers/helpers';
+import { pool } from 'pg';
+import connection from '../models/connection';
 
 class Party {
   /**
@@ -9,27 +9,26 @@ class Party {
    * @param {object} res
    * @return {object} The party object
    */
-  static createNewParty(req, res) {
-    const { id } = req.body;
-    const party = findById(politicalParty, id);
+  static async createNewParty(req, res) {
+    const { name, hqAddress, logoUrl } = req.body;
 
-    if (party.length === 0) {
-      const newParty = req.body;
-      politicalParty.push(newParty);
+    const text = 'INSERT INTO parties (name, hq_address, logo_url) VALUES($1, $2, $3) RETURNING *';
 
+    const values = [name, hqAddress, logoUrl];
+    try {
+      const { rows } = await connection.query(text, values);
       return res.status(201).json({
         status: 201,
-        data: [{
-          data: newParty,
-        }],
-
+        data: [rows[0]],
+      });
+    } catch (error) {
+      return res.status(400).json({
+        status: 400,
+        error: 'All fields must be filled',
       });
     }
-    return res.status(409).json({
-      status: 409,
-      error: 'Party with that Id already exists',
-    });
   }
+
 
   /**
    * Gets the party array
@@ -38,13 +37,22 @@ class Party {
    * @param {object} res
    * @returns {Array} The array of party objects
    */
-  static getAllParties(req, res) {
-    res.status(200).json({
-      status: 200,
-      data: [
-        politicalParty,
-      ],
-    });
+  static async getAllParties(req, res) {
+    const findAllQuery = 'SELECT * FROM parties';
+
+    try {
+      const { rows, rowCount } = await connection.query(findAllQuery);
+      return res.status(200).json({
+        status: 200,
+        data: [{ rows, rowCount }],
+      });
+    } catch (error) {
+      console.log(error)
+      return res.status(400).json({
+        status: 400,
+        error: 'Bad request',
+      });
+    }
   }
 
   /**
@@ -54,19 +62,25 @@ class Party {
    * @param {object} res
    * @returns {Array} Array containing the party object
    */
-  static getPartyById(req, res) {
-    const { id } = req.params;
-    const party = findById(politicalParty, id);
+  static async getPartyById(req, res) {
+    const text = 'SELECT * FROM parties WHERE id = $1';
 
-    if (party.length === 0) {
-      res.status(404).json({
-        status: 404,
-        error: "Can't find any Party with that Id",
-      });
-    } else {
-      res.status(200).json({
+    try {
+      const { rows } = await connection.query(text, [req.params.id]);
+      if (!rows[0]) {
+        return res.status(404).json({
+          status: 404,
+          error: 'Party not found',
+        });
+      }
+      return res.status(200).json({
         status: 200,
-        data: [party],
+        data: [rows[0]],
+      });
+    } catch (error) {
+      return res.status(400).json({
+        status: 400,
+        error: 'No party with that Id',
       });
     }
   }
@@ -78,23 +92,29 @@ class Party {
    * @param {object} res
    * @return {object} The updated party object
    */
-  static editParty(req, res) {
-    const { id } = req.params;
-    const { name, hqAddress, logoUrl } = req.body;
-    const party = findById(politicalParty, id);
+  static async editParty(req, res) {
+    const findOneQuery = 'SELECT * FROM parties WHERE id=$1';
+    const updateParty = `UPDATE parties
+      SET name=$1 returning *`;
 
-    if (party.length === 0) {
-      res.status(404).json({
-        status: 404,
-        error: "Can't find any Party with that Id",
-      });
-    } else {
-      party[0].name = name || '';
-      party[0].hqAddress = hqAddress;
-      party[0].logoUrl = logoUrl;
-      res.status(200).json({
+    try {
+      const { rows } = await connection.query(findOneQuery, [req.params.id]);
+      if (!rows[0]) {
+        return res.status(404).json({
+          status: 400,
+          error: 'Party not found',
+        });
+      }
+
+      const response = await connection.query(updateParty, [req.body.name]);
+      return res.status(200).json({
         status: 200,
-        data: [party],
+        data: response.rows[0],
+      });
+    } catch (err) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Bad request',
       });
     }
   }
@@ -106,20 +126,26 @@ class Party {
    * @param {object} res
    * @return {void}
    */
-  static deleteParty(req, res) {
-    const { id } = req.params;
-    const party = findById(politicalParty, id);
+  static async deleteParty(req, res) {
+    const deleteQuery = 'DELETE FROM parties WHERE id=$1 returning *';
 
-    if (!Array.isArray(party) || !party.length) {
-      res.status(404).json({
-        status: 404,
-        error: "Can't find any Party with that Id",
-      });
-    } else {
-      politicalParty.splice(politicalParty.indexOf(party[0]), 1);
-      res.status(410).json({
+    try {
+      const { rows } = await connection.query(deleteQuery, [req.params.id]);
+      if (!rows[0]) {
+        return res.status(404).json({
+          status: 404,
+          error: 'Party not found',
+        });
+      }
+      return res.status(410).json({
         status: 410,
-        data: 'Successfully deleted party',
+        data: [{ message: 'deleted' }],
+      });
+    } catch (error) {
+      console.log(error)
+      return res.status(400).json({
+        status: 400,
+        error: 'Bad request',
       });
     }
   }
