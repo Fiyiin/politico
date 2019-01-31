@@ -1,4 +1,3 @@
-import { pool } from 'pg';
 import connection from '../models/connection';
 
 class Party {
@@ -17,6 +16,7 @@ class Party {
     const values = [name, hqAddress, logoUrl];
     try {
       const { rows } = await connection.query(text, values);
+      console.log(rows);
       return res.status(201).json({
         status: 201,
         data: [rows[0]],
