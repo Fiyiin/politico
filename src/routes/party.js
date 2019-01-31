@@ -7,7 +7,7 @@ import checkResult from '../middleware/validation/validationResult';
 const router = express.Router();
 const { checkAddParty, checkPartyById, checkEditParty } = validation;
 
-router.post('/', checkPartyById, checkAddParty, checkResult, ctrlParty.createNewParty);
+router.post('/', checkAddParty, checkResult, ctrlParty.createNewParty);
 router.get('/', checkResult, ctrlParty.getAllParties);
 router.get('/:id', checkPartyById, checkResult, ctrlParty.getPartyById);
 router.patch('/:id/name', checkPartyById, checkEditParty, checkResult, ctrlParty.editParty);

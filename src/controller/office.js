@@ -1,5 +1,4 @@
-import politicalOffice from '../models/office';
-import findById from '../helpers/helpers';
+import pool from '../models/connection';
 
 class Office {
   /**
@@ -7,44 +6,50 @@ class Office {
    *
    * @param {object} req
    * @param {object} res
-   * @return {object} The party object
+   * @return {object} The office object
    */
-  static createNewOffice(req, res) {
-    const { id } = req.body;
-    const office = findById(politicalOffice, id);
+  static async createNewOffice(req, res) {
+    const { type, name } = req.body;
+    const text = 'INSERT INTO offices (type, name) VALUES($1, $2) RETURNING *';
+    const values = [type, name];
 
-    if (office.length === 0) {
-      const newOffice = req.body;
-      politicalOffice.push(newOffice);
-
+    try {
+      const { rows } = await pool.query(text, values);
       return res.status(201).json({
         status: 201,
-        data: [{
-          data: newOffice,
-        }],
-
+        data: [rows[0]],
+      });
+    } catch (error) {
+      return res.status(400).json({
+        status: 400,
+        error: 'All fields must be filled',
       });
     }
-    return res.status(409).json({
-      status: 409,
-      error: 'Party with that Id already exists',
-    });
   }
 
+
   /**
-   * Gets the array containing all party objects
+   * Gets the office array
    *
    * @param {object} req
    * @param {object} res
-   * @returns {Array} Array containing all office objects
+   * @returns {Array} The array of office objects
    */
-  static getAllOffices(req, res) {
-    return res.status(200).json({
-      status: 200,
-      data: [
-        politicalOffice,
-      ],
-    });
+  static async getAllOffices(req, res) {
+    const findAllQuery = 'SELECT * FROM offices';
+
+    try {
+      const { rows, rowCount } = await pool.query(findAllQuery);
+      return res.status(200).json({
+        status: 200,
+        data: [{ rows, rowCount }],
+      });
+    } catch (error) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Bad request',
+      });
+    }
   }
 
   /**
@@ -52,21 +57,27 @@ class Office {
    *
    * @param {object} req
    * @param {object} res
-   * @returns {array} Array containing the office object
+   * @returns {Array} Array containing the office object
    */
-  static getOfficeById(req, res) {
-    const { id } = req.params;
-    const office = findById(politicalOffice, id);
+  static async getOfficeById(req, res) {
+    const text = 'SELECT * FROM offices WHERE id = $1';
 
-    if (office.length === 0) {
-      res.status(404).json({
-        status: 404,
-        error: "Can't find any Office with that Id",
-      });
-    } else {
-      res.status(200).json({
+    try {
+      const { rows } = await pool.query(text, [req.params.id]);
+      if (!rows[0]) {
+        return res.status(404).json({
+          status: 404,
+          error: 'office not found',
+        });
+      }
+      return res.status(200).json({
         status: 200,
-        data: [office],
+        data: [rows[0]],
+      });
+    } catch (error) {
+      return res.status(400).json({
+        status: 400,
+        error: 'No office with that Id',
       });
     }
   }

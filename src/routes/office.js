@@ -6,7 +6,7 @@ import checkResult from '../middleware/validation/validationResult';
 const router = express.Router();
 const { checkAddOffice, checkOfficeById } = validation;
 
-router.post('/', checkOfficeById, checkAddOffice, checkResult, ctrlOffice.createNewOffice);
+router.post('/', checkAddOffice, checkResult, ctrlOffice.createNewOffice);
 router.get('/', checkResult, ctrlOffice.getAllOffices);
 router.get('/:id', checkOfficeById, checkResult, ctrlOffice.getOfficeById);
 

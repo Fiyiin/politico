@@ -1,7 +1,6 @@
 import pool from './connection';
 
-const migration = [
-  `DROP TABLE IF EXISTS users;
+const migration = `DROP TABLE IF EXISTS users CASCADE;
   CREATE TABLE users(
     id SERIAL PRIMARY KEY,
     firstname TEXT,
@@ -12,48 +11,39 @@ const migration = [
     phone_number VARCHAR(15),
     passport_url TEXT,
     is_admin BOOLEAN
-  );`,
-
-  `DROP TABLE IF EXISTS parties;
+  );
+  DROP TABLE IF EXISTS parties CASCADE;
   CREATE TABLE parties(
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     hq_address TEXT NOT NULL,
     logo_url TEXT
-  );`
-
-  `DROP TABLE IF EXISTS offices;
+  );
+  DROP TABLE IF EXISTS offices CASCADE;
   CREATE TABLE offices(
     id SERIAL PRIMARY KEY,
     type TEXT NOT NULL,
     name TEXT NOT NULL
-  );`
-
-  `DROP TABLE IF EXISTS candidates;
+  );
+  DROP TABLE IF EXISTS candidates CASCADE;
   CREATE TABLE candidates(
     id SERIAL PRIMARY KEY, 
     office INTEGER REFERENCES offices(id),
     party INTEGER REFERENCES parties(id), 
     candidate INTEGER REFERENCES users(id)
-  );`
-
-  `DROP TABLE IF EXISTS votes;
+  );
+  DROP TABLE IF EXISTS votes CASCADE;
   CREATE TABLE votes(
     id SERIAL PRIMARY KEY,
     created_on VARCHAR NOT NULL,
     created_by INTEGER REFERENCES users(id),
     office INTEGER REFERENCES offices(id),
-    candidate INTEGER REFERNCES candidates(candidate)
-  );`
+    candidate INTEGER REFERENCES candidates(id)
+  );
+`;
 
-  `DROP TABLE IF EXISTS petitons;
-  CREATE TABLE petitions(
-    id SERIAL PRIMARY KEY,
-    created_on VARCHAR NOT NULL,
-    created_by INTEGER REFERENCES users(id),
-    office INTEGER REFERENCES offices(id),
-    body TEXT NOT NULL
-  );`
-];
-
-migration.forEach(query => pool.query(query, error => console.log(error)));
+pool.query(migration).then((resp) => {
+  console.log(resp);
+}).catch((error) => {
+  console.log(error);
+});
