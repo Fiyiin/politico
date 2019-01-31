@@ -4,6 +4,7 @@ import bodyparser from 'body-parser';
 
 import partyRouter from './routes/party';
 import officeRouter from './routes/office';
+import userRouter from './routes/user';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/parties', partyRouter);
 app.use('/api/v1/offices', officeRouter);
+app.use('/api/v1/auth', userRouter);
 
 app.get('*', (req, res) => {
   res.status(404).json({

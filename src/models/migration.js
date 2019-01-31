@@ -7,7 +7,7 @@ const migration = `DROP TABLE IF EXISTS users CASCADE;
     lastname TEXT,
     othername TEXT,
     email VARCHAR(45) UNIQUE NOT NULL,
-    password VARCHAR(20) NOT NULL,
+    password VARCHAR(100) NOT NULL,
     phone_number VARCHAR(15),
     passport_url TEXT,
     is_admin BOOLEAN
