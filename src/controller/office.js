@@ -27,6 +27,24 @@ class Office {
     }
   }
 
+  static async registerForOffice(req, res) {
+    const { office, party, candidate } = req.body;
+    const text = 'INSERT INTO candidates(office, party, candidate) VALUES ($1, $2, $3) RETURNING *';
+    const values = [office, party, candidate];
+
+    try {
+      const { rows } = await pool.query(text, values);
+      return res.status(201).json({
+        status: 201,
+        data: [rows[0]],
+      });
+    } catch (error) {
+      return res.status(500).json({
+        status: 500,
+        error: 'Unexpected database error',
+      });
+    }
+  }
 
   /**
    * Gets the office array
@@ -80,6 +98,13 @@ class Office {
         error: 'No office with that Id',
       });
     }
+  }
+
+  static async createVote(req, res) {
+    const { office, candidate } = req.body;
+    const  { id } = req.body.created_by;
+
+    c
   }
 }
 

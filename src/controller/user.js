@@ -46,7 +46,7 @@ class User {
         });
       } return res.status(400).json({
         status: 400,
-        error: 'There was a problem registering the user',
+        error: 'There was a problem registering the user,check the values you entered',
       });
     }
   }
