@@ -28,9 +28,9 @@ const migration = `DROP TABLE IF EXISTS users CASCADE;
   DROP TABLE IF EXISTS candidates CASCADE;
   CREATE TABLE candidates(
     id SERIAL PRIMARY KEY, 
-    office INTEGER REFERENCES offices(id),
-    party INTEGER REFERENCES parties(id), 
-    candidate INTEGER REFERENCES users(id)
+    office INTEGER REFERENCES offices(id) UNIQUE,
+    party INTEGER REFERENCES parties(id) UNIQUE, 
+    candidate INTEGER REFERENCES users(id) UNIQUE
   );
   DROP TABLE IF EXISTS votes CASCADE;
   CREATE TABLE votes(
