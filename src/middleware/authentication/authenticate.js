@@ -1,56 +1,40 @@
 import jwt from 'jsonwebtoken';
+import connection from '../../models/connection';
 
 class Authenticate {
-  static verify(req, res, next) {
-    const bearerHeader = req.headers.authorization;
-    const error = 'Authentication failed';
-
-    if (typeof bearerHeader === 'undefined') {
-      return res.status(403).json({
-        status: 403,
-        error,
+  static async verifyToken(req, res, next) {
+    const token = req.headers['x-access-token'];
+    if (!token) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Token not provided',
       });
     }
-
-    const bearerToken = bearerHeader.split(' ')[1];
-    req.token = bearerToken;
-
-    return jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
-      if (err) {
-        return res.status(403).json({
-          status: 403,
-          error,
+    try {
+      const decoded = await jwt.verify(token, process.env.JWT_SECRET);
+      const text = 'SELECT * FROM users WHERE id = $1 AND is_admin = true';
+      console.log(decoded);
+      if (typeof decoded.is_admin !== 'boolean') {
+        return res.status(400).json({
+          status: 400,
+          error: 'The token you provided is invalid',
         });
       }
-      return next();
-    });
-  }
-
-  static sign(req, res) {
-    const { user, success } = req;
-    const userId = user[0].user_id;
-    const isAdmin = user[0].is_admin;
-
-    return jwt.sign({ userId, isAdmin }, process.env.JWT_SECRET, (error, token) => {
-      if (error) {
-        return res.status(401).send({ error: 'Unexpected token error occurred' });
+      const { rows } = await connection.query(text, [decoded.id]);
+      if (!rows[0]) {
+        return res.status(401).json({
+          status: 401,
+          error: 'You don\'t have access to this route',
+        });
       }
-      return res.status(201).send({ success, user: user[0], token });
-    });
-  }
-
-  static signEmail(req, res, next) {
-    const { user } = req;
-
-    return jwt.sign({ email: user[0].email, exp: Math.floor(Date.now() / 1000) + (30 * 60) },
-      process.env.JWT_SECRET, (error, token) => {
-        if (error) {
-          return res.status(401).send({ error: 'Unexpected token error occurred' });
-        }
-        req.link = `http://localhost:3000/api/v1/auth/resetPassword/${token}`;
-        req.email = user[0].email;
-        return next();
+      req.user = { id: decoded.id };
+      next();
+    } catch (error) {
+      return res.status(400).json({
+        status: 400,
+        error: 'invalid token',
       });
+    }
   }
 }
 
