@@ -99,6 +99,13 @@ class Office {
       });
     }
   }
+
+  static async createVote(req, res) {
+    const { office, candidate } = req.body;
+    const  { id } = req.body.created_by;
+
+    c
+  }
 }
 
 export default Office;

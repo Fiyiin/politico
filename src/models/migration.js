@@ -15,7 +15,7 @@ const migration = `DROP TABLE IF EXISTS users CASCADE;
   DROP TABLE IF EXISTS parties CASCADE;
   CREATE TABLE parties(
     id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
+    name TEXT UNIQUE NOT NULL,
     hq_address TEXT NOT NULL,
     logo_url TEXT
   );
