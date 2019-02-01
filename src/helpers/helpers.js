@@ -14,9 +14,10 @@ class Helper {
     return /\S+@\S+\.\S+/.test(email);
   }
 
-  static generateToken(id) {
+  static generateToken(id, isAdmin) {
     const token = jwt.sign({
-      userId: id,
+      id,
+      is_admin: isAdmin,
     }, process.env.JWT_SECRET, { expiresIn: '7d' });
     return token;
   }
