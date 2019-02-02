@@ -16,15 +16,20 @@ class Party {
     const values = [name, hqAddress, logoUrl];
     try {
       const { rows } = await connection.query(text, values);
-      console.log(rows);
       return res.status(201).json({
         status: 201,
         data: [rows[0]],
       });
     } catch (error) {
-      return res.status(400).json({
-        status: 400,
-        error: 'All fields must be filled',
+      if (error.routine === '_bt_check_unique') {
+        return res.status(409).json({
+          status: 409,
+          error: 'Party with that name already exists',
+        });
+      }
+      return res.status(500).json({
+        status: 500,
+        error: 'Unexpected database error',
       });
     }
   }
@@ -70,7 +75,7 @@ class Party {
       if (!rows[0]) {
         return res.status(404).json({
           status: 404,
-          error: 'Party not found',
+          error: 'No party with that Id',
         });
       }
       return res.status(200).json({
@@ -78,9 +83,9 @@ class Party {
         data: [rows[0]],
       });
     } catch (error) {
-      return res.status(400).json({
-        status: 400,
-        error: 'No party with that Id',
+      return res.status(500).json({
+        status: 500,
+        error: 'Unexpected database error',
       });
     }
   }
@@ -94,27 +99,31 @@ class Party {
    */
   static async editParty(req, res) {
     const findOneQuery = 'SELECT * FROM parties WHERE id=$1';
-    const updateParty = `UPDATE parties
-      SET name=$1 returning *`;
-
+    const updateParty = 'UPDATE parties SET name = $1 WHERE id = $2 RETURNING id, name';
+    const { id } = req.params;
     try {
-      const { rows } = await connection.query(findOneQuery, [req.params.id]);
+      const { rows } = await connection.query(findOneQuery, [id]);
       if (!rows[0]) {
         return res.status(404).json({
-          status: 400,
-          error: 'Party not found',
+          status: 404,
+          error: 'Party with that Id not found',
         });
       }
-
-      const response = await connection.query(updateParty, [req.body.name]);
+      const response = await connection.query(updateParty, [req.body.name, id]);
       return res.status(200).json({
         status: 200,
         data: response.rows[0],
       });
-    } catch (err) {
-      return res.status(400).json({
-        status: 400,
-        error: 'Bad request',
+    } catch (error) {
+      if (error.routine === '_bt_check_unique') {
+        return res.status(409).json({
+          status: 409,
+          error: 'Party with that name already exits',
+        });
+      }
+      return res.status(500).json({
+        status: 500,
+        error: 'Unexpected database error',
       });
     }
   }
@@ -134,7 +143,7 @@ class Party {
       if (!rows[0]) {
         return res.status(404).json({
           status: 404,
-          error: 'Party not found',
+          error: 'Party with that Id not found',
         });
       }
       return res.status(410).json({
@@ -142,10 +151,9 @@ class Party {
         data: [{ message: 'deleted' }],
       });
     } catch (error) {
-      console.log(error)
-      return res.status(400).json({
-        status: 400,
-        error: 'Bad request',
+      return res.status(500).json({
+        status: 500,
+        error: 'Unexpected database error',
       });
     }
   }

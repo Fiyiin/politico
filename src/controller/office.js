@@ -28,17 +28,30 @@ class Office {
   }
 
   static async registerForOffice(req, res) {
-    const { office, party, candidate } = req.body;
-    const text = 'INSERT INTO candidates(office, party, candidate) VALUES ($1, $2, $3) RETURNING *';
+    const candidate = req.params.id;
+    const { office, party } = req.body;
+    const text = 'INSERT INTO candidates(office, party, candidate) VALUES ($1, $2, $3) RETURNING office, candidate';
     const values = [office, party, candidate];
 
     try {
       const { rows } = await pool.query(text, values);
       return res.status(201).json({
         status: 201,
-        data: [rows[0]],
+        data: [{office: rows[0].office, user: rows[0].candidate }],
       });
     } catch (error) {
+      if (error.routine === 'ri_ReportViolation') {
+        return res.status(404).json({
+          status: 404,
+          error: 'No user with that Id',
+        });
+      }
+      if (error.routine === '_bt_check_unique') {
+        return res.status(409).json({
+          status: 409,
+          error: 'You can only register once',
+        });
+      }
       return res.status(500).json({
         status: 500,
         error: 'Unexpected database error',
@@ -85,7 +98,7 @@ class Office {
       if (!rows[0]) {
         return res.status(404).json({
           status: 404,
-          error: 'office not found',
+          error: 'No office with that Id',
         });
       }
       return res.status(200).json({
@@ -93,18 +106,11 @@ class Office {
         data: [rows[0]],
       });
     } catch (error) {
-      return res.status(400).json({
-        status: 400,
-        error: 'No office with that Id',
+      return res.status(500).json({
+        status: 500,
+        error: 'Unexpected database error',
       });
     }
-  }
-
-  static async createVote(req, res) {
-    const { office, candidate } = req.body;
-    const  { id } = req.body.created_by;
-
-    c
   }
 }
 
