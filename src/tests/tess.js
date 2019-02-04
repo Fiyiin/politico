@@ -3,7 +3,7 @@
 import request from 'supertest';
 import expect from 'expect';
 
-import app from '../app';
+import app from '../index';
 
 // Testing for SendIT Server
 describe('SendIT Server - Parcel Routes', () => {
@@ -12,7 +12,7 @@ describe('SendIT Server - Parcel Routes', () => {
     // Test for parcels by valid user(admin)
     it('should return a status code of 200 and all parcels', (done) => {
       request(app)
-        .get('/api/v1/parties')
+        .get('/api/v1/parcels')
         .set('Authorization', `Bearer ${process.env.ADMIN_TOKEN}`)
         .expect(200)
         .expect((res) => {
@@ -198,4 +198,3 @@ describe('SendIT Server - Parcel Routes', () => {
         .end(done);
     });
   });
-});

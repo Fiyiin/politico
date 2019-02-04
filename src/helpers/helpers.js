@@ -10,10 +10,6 @@ class Helper {
     return bcrypt.compareSync(password, hashPassword);
   }
 
-  static isValidEmail(email) {
-    return /\S+@\S+\.\S+/.test(email);
-  }
-
   static generateToken(id, isAdmin) {
     const token = jwt.sign({
       id,
