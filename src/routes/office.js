@@ -7,11 +7,11 @@ import auth from '../middleware/authentication/authenticate';
 const { verifyToken, adminStatus } = auth;
 
 const router = express.Router();
-const { checkAddOffice, checkOfficeById } = validation;
+const { checkAddOffice, checkOfficeById, checkUserById, checkRegister } = validation;
 
 router.post('/', checkAddOffice, checkResult, verifyToken, adminStatus, ctrlOffice.createNewOffice);
 router.get('/', verifyToken, checkResult, ctrlOffice.getAllOffices);
 router.get('/:id', checkOfficeById, checkResult, verifyToken, ctrlOffice.getOfficeById);
-router.post('/:id/register', checkOfficeById, checkResult, verifyToken, adminStatus, ctrlOffice.registerForOffice);
+router.post('/:id/register', checkUserById, checkRegister, checkResult, verifyToken, adminStatus, ctrlOffice.registerForOffice);
 router.get('/:id/result', checkOfficeById, checkResult, verifyToken, ctrlOffice.electionResult);
 export default router;

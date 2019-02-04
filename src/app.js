@@ -1,6 +1,7 @@
 import express from 'express';
 import logger from 'morgan';
 import bodyparser from 'body-parser';
+import '@babel/polyfill';
 
 import partyRouter from './routes/party';
 import officeRouter from './routes/office';

@@ -125,7 +125,7 @@ class Office {
           error: 'Office with that Id not found',
         });
       }
-      return res.status(201).json({
+      return res.status(200).json({
         status: 200,
         data: [{ office: rows[0].office_id, candidate: rows[0].id, result: rows[0].total_vote }],
       });

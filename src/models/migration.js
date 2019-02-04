@@ -1,14 +1,21 @@
 import pool from './connection';
 
 const migration = `
-DROP TABLE IF EXISTS candidates CASCADE;
+/*Table structure for table users */
 
-CREATE TABLE candidates (
+DROP TABLE IF EXISTS users CASCADE;
+
+CREATE TABLE users (
   id SERIAL,
-  office_id integer REFERENCES offices(id),
-  party_id integer REFERENCES parties(id),
-  user_id integer REFERENCES users(id),
-  PRIMARY KEY (office_id, user_id)
+  firstname varchar(20) DEFAULT NULL,
+  lastname varchar(20) DEFAULT NULL,
+  othername varchar(20) DEFAULT NULL,
+  email VARCHAR(45) UNIQUE NOT NULL,
+  password varchar(100) NOT NULL,
+  phone_number varchar(15) DEFAULT NULL,
+  passport_url text,
+  is_admin BOOLEAN DEFAULT FALSE,
+  PRIMARY KEY (id)
 );
 
 /*Table structure for table offices */
@@ -34,21 +41,14 @@ CREATE TABLE parties (
   PRIMARY KEY (id)
 );
 
-/*Table structure for table users */
+DROP TABLE IF EXISTS candidates CASCADE;
 
-DROP TABLE IF EXISTS users CASCADE;
-
-CREATE TABLE users (
+CREATE TABLE candidates (
   id SERIAL,
-  firstname varchar(20) DEFAULT NULL,
-  lastname varchar(20) DEFAULT NULL,
-  othername varchar(20) DEFAULT NULL,
-  email VARCHAR(45) UNIQUE NOT NULL,
-  password varchar(100) NOT NULL,
-  phone_number varchar(15) DEFAULT NULL,
-  passport_url text,
-  is_admin BOOLEAN DEFAULT FALSE,
-  PRIMARY KEY (id)
+  office_id integer REFERENCES offices(id),
+  party_id integer REFERENCES parties(id),
+  user_id integer REFERENCES users(id),
+  PRIMARY KEY (office_id, user_id)
 );
 
 /*Table structure for table votes */

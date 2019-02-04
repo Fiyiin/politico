@@ -3,8 +3,8 @@ import ctrlVote from '../controller/vote';
 import auth from '../middleware/authentication/authenticate';
 
 const router = express.Router();
-const { verifyToken, adminStatus } = auth;
+const { verifyToken } = auth;
 
-router.post('/', verifyToken, adminStatus, ctrlVote.createVote);
+router.post('/', verifyToken, ctrlVote.createVote);
 
 export default router;
