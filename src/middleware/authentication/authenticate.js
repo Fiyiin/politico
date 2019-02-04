@@ -12,27 +12,40 @@ class Authenticate {
     }
     try {
       const decoded = await jwt.verify(token, process.env.JWT_SECRET);
-      const text = 'SELECT * FROM users WHERE id = $1 AND is_admin = true';
-      console.log(decoded);
-      if (typeof decoded.is_admin !== 'boolean') {
+      req.user = { id: decoded.id, is_admin: decoded.is_admin };
+      next();
+    } catch (error) {
+      console.log(error)
+      return res.status(400).json({
+        status: 400,
+        error: 'invalid token',
+      });
+    }
+  }
+
+  static async adminStatus(req, res, next) {
+    const { id, is_admin } = req.user;
+    const isAdmin = is_admin;
+    const query = 'SELECT * FROM users WHERE id = $1 AND is_admin = true';
+    try {
+      if (typeof isAdmin !== 'boolean') {
         return res.status(400).json({
           status: 400,
           error: 'The token you provided is invalid',
         });
       }
-      const { rows } = await connection.query(text, [decoded.id]);
+      const { rows } = await connection.query(query, [id]);
       if (!rows[0]) {
         return res.status(401).json({
           status: 401,
           error: 'You don\'t have access to this route',
         });
       }
-      req.user = { id: decoded.id };
       next();
     } catch (error) {
-      return res.status(400).json({
-        status: 400,
-        error: 'invalid token',
+      return res.status(500).json({
+        status: 500,
+        error: 'Unexpected database error',
       });
     }
   }
