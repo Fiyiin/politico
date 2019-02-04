@@ -13,5 +13,5 @@ router.post('/', checkAddOffice, checkResult, verifyToken, adminStatus, ctrlOffi
 router.get('/', verifyToken, checkResult, ctrlOffice.getAllOffices);
 router.get('/:id', checkOfficeById, checkResult, verifyToken, ctrlOffice.getOfficeById);
 router.post('/:id/register', checkOfficeById, checkResult, verifyToken, adminStatus, ctrlOffice.registerForOffice);
-
+router.get('/:id/result', checkOfficeById, checkResult, verifyToken, ctrlOffice.electionResult);
 export default router;
