@@ -2,7 +2,9 @@ import connection from '../models/connection';
 
 class Vote {
   static async createVote(req, res) {
-    const { createdBy, office, candidate } = req.body;
+    console.log(req.user)
+    const createdBy = req.user.id;
+    const { office, candidate } = req.body;
     const voteQuery = 'INSERT INTO votes (user_id, office_id, candidate_id) VALUES ($1, $2, $3) RETURNING *';
     const values = [createdBy, office, candidate];
 
