@@ -3,7 +3,7 @@ import { Pool } from 'pg';
 
 dotenv.config();
 
-const connectionString = process.env.TEST_DB;
+const connectionString = process.env.DB_ELEPHANT;
 
 const pool = new Pool({ connectionString });
 

@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import logger from 'morgan';
 import bodyparser from 'body-parser';
 import '@babel/polyfill';
@@ -14,6 +15,7 @@ const port = process.env.PORT || 3000;
 app.use(logger('dev'));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
+app.use(cors());
 
 app.get('/', (req, res) => {
   return res.status(200).json({

@@ -6,6 +6,7 @@ dotenv.config();
 
 class User {
   static async registerUser(req, res) {
+    console.log(req.body)
     let { isAdmin } = req.body;
     const {
       firstname, lastname, othername, email, password, phoneNumber, passportUrl,

@@ -140,17 +140,17 @@ a {
 
 .site-nav > li:nth-child(2) > a {
     font-family: lato thin, sans-serif;
-    color: #3ABABA;
+    color: #40495F;
 }
 
 .site-nav > li:nth-child(3) > a {
     font-family: lato thin, sans-serif;
-    color: #3ABABA;
+    color: #40495F;
 }
 
 .site-nav > li:nth-child(4) > a {
     font-family: lato thin, sans-serif;
-    color: #3ABABA;
+    color: #40495F;
 }
 
 .site-nav > li:last-child > a {
@@ -257,7 +257,11 @@ a {
 .aContentRight {
     flex: 0 0 55%;
     margin-top: 135px;
-    align-self: center
+    align-self: center;
+}
+
+.aContentRight > h1 {
+    margin-bottom: 20px;
 }
 
 @media (max-width: 420px) {
@@ -617,7 +621,7 @@ input[type=checkbox] {
 .modal button {
     background-color: #4CAF50;
     color: white;
-    padding: 15px;
+    padding: 10px;
     margin: 8px 19px;
     border: none;
     cursor: pointer;
@@ -640,10 +644,13 @@ input[type=checkbox] {
 
 .imgContainer {
     text-align: center;
-    margin: 24px 0 12px 0;
+    margin: 10px 0 12px 0;
     position: relative;
 }
 
+.imgContainer > h2 {
+    font-size: 20px;
+}
 .avatar {
     width: 200px;
     height: 200px;
@@ -655,8 +662,8 @@ form {
 }
 
 .signup-avatar {
-    width: 135px;
-    height: 135px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
 }
 
