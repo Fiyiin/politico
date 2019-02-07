@@ -15,7 +15,7 @@ app.use(logger('dev'));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 
-app.get('/', (req, res) => {
+app.get('/api/v1', (req, res) => {
   return res.status(200).json({
     message: 'Welcome to Politico',
   });
