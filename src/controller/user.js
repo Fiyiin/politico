@@ -15,7 +15,7 @@ class User {
 
     const hashPassword = Helper.hashPassword(password);
 
-    const createQuery = 'INSERT INTO users (firstname, lastname, othername, email, password, phone_number, passport_url, is_admin) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING firstname, lastname, othername, email, phone_number';
+    const createQuery = 'INSERT INTO users (firstname, lastname, othername, email, password, phone_number, passport_url, is_admin) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *';
 
     const values = [firstname, lastname, othername, email, hashPassword,
       phoneNumber, passportUrl, isAdmin];
@@ -26,7 +26,14 @@ class User {
       return res.status(201).json({
         data: [{
           token,
-          user: rows[0]
+          user: {
+            id: rows[0].id,
+            firstname: rows[0].firstname,
+            lasttname: rows[0].lastname,
+            othername: rows[0].othername,
+            email: rows[0].email,
+            phoneNumber: rows[0].phone_number,
+          },
         }],
       });
     } catch (error) {
