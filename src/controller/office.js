@@ -20,9 +20,9 @@ class Office {
         data: [rows[0]],
       });
     } catch (error) {
-      return res.status(400).json({
-        status: 400,
-        error: 'All fields must be filled',
+      return res.status(500).json({
+        status: 500,
+        error: 'Unexpected database error',
       });
     }
   }

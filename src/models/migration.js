@@ -12,7 +12,7 @@ CREATE TABLE users (
   othername varchar(20) DEFAULT NULL,
   email VARCHAR(45) UNIQUE NOT NULL,
   password varchar(100) NOT NULL,
-  phone_number varchar(15) DEFAULT NULL,
+  phone_number varchar(25) DEFAULT NULL,
   passport_url text,
   is_admin BOOLEAN DEFAULT FALSE,
   PRIMARY KEY (id)
@@ -24,8 +24,8 @@ DROP TABLE IF EXISTS offices CASCADE;
 
 CREATE TABLE offices (
   id SERIAL,
-  type text NOT NULL,
-  name text NOT NULL,
+  type varchar(50) NOT NULL,
+  name varchar(50) NOT NULL,
   PRIMARY KEY (id)
 );
 
@@ -35,7 +35,7 @@ DROP TABLE IF EXISTS parties CASCADE;
 
 CREATE TABLE parties (
   id SERIAL,
-  name varchar(20) DEFAULT NULL,
+  name varchar(20) UNIQUE NOT NULL,
   hq_address varchar(255) DEFAULT NULL,
   logo_url text,
   PRIMARY KEY (id)

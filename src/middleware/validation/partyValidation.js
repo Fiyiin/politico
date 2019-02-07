@@ -6,7 +6,7 @@ const validation = {
   checkAddParty: [
     check('name').isLength({ min: 1 }).withMessage('Party name cannot be empty'),
     check('hqAddress').isLength({ min: 1 }).withMessage('Party Address cannot be empty'),
-    check('logoUrl').isURL().withMessage('Enter a valid Url'),
+    check('logoUrl').isURL().withMessage('Enter a valid logo url'),
   ],
   checkPartyById: [...checkPartyId],
   checkEditParty: [check('name').isLength({ min: 1 }).withMessage('Party name cannot be empty')],
