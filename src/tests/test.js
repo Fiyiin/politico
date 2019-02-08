@@ -128,7 +128,7 @@ describe('Test for Login', () => {
   });
 });
 
-describe('Tests for create party endpoint', () => {
+/*describe('Tests for create party endpoint', () => {
   it('should return 201 for success', (done) => {
     request(app)
       .post('/api/v1/parties')
@@ -250,4 +250,4 @@ describe('Test for get specific office endpoint', () => {
         done();
       });
   });
-}); 
+}); */
