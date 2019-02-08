@@ -82,7 +82,7 @@ describe('Tests for adminuser endpoints', () => {
 });
 
 describe('Generate Token for testing Endpoints', () => {
-  it('should return token for user successful login', (done) => {
+  /*it('should return token for user successful login', (done) => {
     request(app)
       .post('/api/v1/auth/login')
       .send({
@@ -94,7 +94,7 @@ describe('Generate Token for testing Endpoints', () => {
         userToken = res.body.token;
         done();
       });
-  });
+  });*/
   it('should return token for admin successful login', (done) => {
     request(app)
       .post('/api/v1/auth/login')
