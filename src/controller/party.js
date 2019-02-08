@@ -145,8 +145,8 @@ class Party {
           error: 'Party with that Id not found',
         });
       }
-      return res.status(410).json({
-        status: 410,
+      return res.status(200).json({
+        status: 200,
         data: [{ message: 'deleted' }],
       });
     } catch (error) {

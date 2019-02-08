@@ -36,8 +36,8 @@ class Authenticate {
       }
       const { rows } = await connection.query(query, [id]);
       if (!rows[0]) {
-        return res.status(401).json({
-          status: 401,
+        return res.status(403).json({
+          status: 403,
           error: 'You don\'t have access to this route',
         });
       }
