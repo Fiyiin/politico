@@ -41,10 +41,22 @@ class Office {
       });
     } catch (error) {
       console.log(error)
-      if (error.routine === 'ri_ReportViolation') {
+      if (error.constraint === 'candidates_user_id_fkey') {
         return res.status(404).json({
           status: 404,
           error: 'No user with that Id',
+        });
+      }
+      if (error.constraint === 'candidates_office_id_fkey') {
+        return res.status(404).json({
+          status: 404,
+          error: 'No Office with that Id',
+        });
+      }
+      if (error.constraint === 'candidates_party_id_fkey') {
+        return res.status(404).json({
+          status: 404,
+          error: 'No party with that Id',
         });
       }
       if (error.routine === '_bt_check_unique') {
@@ -77,9 +89,9 @@ class Office {
         data: [{ rows, rowCount }],
       });
     } catch (error) {
-      return res.status(400).json({
-        status: 400,
-        error: 'Bad request',
+      return res.status(500).json({
+        status: 500,
+        error: 'Unexpected database error',
       });
     }
   }
@@ -115,7 +127,7 @@ class Office {
   }
 
   static async electionResult(req, res) {
-    const query = 'SELECT COUNT(votes.candidate_id) AS total_vote, candidates.office_id, candidates.id FROM votes JOIN candidates ON candidates.id =votes.candidate_id WHERE votes.candidate_id = candidates.id AND candidates.office_id=$1 GROUP BY candidates.id, candidates.user_id, candidates.office_id';
+    const query = 'SELECT COUNT(votes.candidate_id) AS total_vote, candidates.id, candidates.user_id, candidates.office_id FROM votes, candidates WHERE votes.office_id=$1 GROUP BY candidates.id, candidates.user_id, candidates.office_id';
 
     try {
       const { rows } = await pool.query(query, [req.params.id]);
@@ -127,7 +139,7 @@ class Office {
       }
       return res.status(200).json({
         status: 200,
-        data: [{ office: rows[0].office_id, candidate: rows[0].id, result: rows[0].total_vote }],
+        data: [{ office: req.params.id, candidate: rows[0].id, result: rows[0].total_vote }],
       });
     } catch (error) {
       return res.status(500).json({

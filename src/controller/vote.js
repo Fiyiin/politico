@@ -15,6 +15,7 @@ class Vote {
         data: [{ office: rows[0].office_id, candidate: rows[0].candidate_id, voter: rows[0].user_id }],
       });
     } catch (error) {
+      console.log(error)
       if (error.routine === 'ri_ReportViolation') {
         return res.status(404).json({
           status: 404,

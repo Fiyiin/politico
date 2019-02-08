@@ -6,11 +6,49 @@ import dotenv from 'dotenv';
 
 import app from '../app';
 
+process.env.NODE_ENV = 'test';
+
 dotenv.config();
 
-before('Authentication', () => {
-  describe('Sign up an admin user', () => {
-    it('responds with the user detail and token', (done) => {
+let userToken;
+let adminToken;
+
+
+describe('Politico api landing page', () => {
+  it('responds with json', (done) => {
+    request(app)
+      .get('/api/v1')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200, done);
+  });
+  it('should return a status code of 200 and a welcome message', (done) => {
+    request(app)
+      .get('/api/v1')
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toEqual({ message: 'Welcome to Politico' });
+      })
+      .end(done);
+  });
+});
+
+
+describe('Test for Invalid URL', () => {
+  it('Should return status code 404 and error message', (done) => {
+    request(app)
+      .get('/api')
+      .expect(404)
+      .end((error, res) => {
+        expect(res.body.error).toEqual('Not found! Check that you have the correct url');
+        done();
+      });
+  });
+});
+
+describe('Tests for adminuser endpoints', () => {
+  describe('Test for Signup', () => {
+    it('should return 409 for conflict', (done) => {
       request(app)
         .post('/api/v1/auth/signup')
         .send({
@@ -23,180 +61,193 @@ before('Authentication', () => {
           passportUrl: 'bimbo.gif',
           isAdmin: true,
         })
-        .set('Accept', 'application/json')
-        .expect(201)
-        .expect((res) => {
-          expect(res.body.data).toBe('array');
-        })
-        .end(done);
+        .expect(409, done);
     });
+  });
+  it('should return 400 for invalid inputs', (done) => {
+    request(app)
+      .post('/api/v1/auth/signup')
+      .send({
+        firstname: '',
+        lastname: '',
+        othername: '',
+        email: 'grade@gradient.com',
+        password: 'victor0',
+        phoneNumber: '094832783',
+        passportUrl: 'bimbo.gif',
+        isAdmin: true,
+      })
+      .expect(400, done);
   });
 });
 
-describe('Party Server', () => {
-  describe('Politico api landing page', () => {
-    it('responds with json', (done) => {
-      request(app)
-        .get('/')
-        .set('Accept', 'application/json')
-        .expect('Content-Type', /json/)
-        .expect(200, done);
-    });
-    it('should return a status code of 200 and a welcome message', (done) => {
-      request(app)
-        .get('/')
-        .expect(200)
-        .expect((res) => {
-          expect(res.body).toEqual({ message: 'Welcome to Politico' });
-        })
-        .end(done);
-    });
-  });
-
-  /*  describe('GET specific party by Id', () => {
-      it('should return a single party object', (done) => {
-        request(app)
-          .get('/api/v1/parties/1001')
-          .expect(200)
-          .expect((res) => {
-            expect(res.body.data[0]).toEqual([parties[0]]);
-          })
-          .end(done);
+describe('Generate Token for testing Endpoints', () => {
+  it('should return token for user successful login', (done) => {
+    request(app)
+      .post('/api/v1/auth/login')
+      .send({
+        email: 'grade@gradient.com',
+        password: 'victor0',
+      })
+      .expect(200)
+      .end((error, res) => {
+        userToken = res.body.token;
+        done();
       });
-      it('should return status code 404 when Id does not match', (done) => {
-        request(app)
-          .get('/api/v1/parties/419')
-          .expect(404)
-          .expect({ error: "Can't find any Party with that Id", status: 404 }, done);
+  });
+  it('should return token for admin successful login', (done) => {
+    request(app)
+      .post('/api/v1/auth/login')
+      .send({
+        email: 'grade@gradient.com',
+        password: 'victor0',
+      })
+      .expect(200, done)
+  });
+});
+
+
+describe('Test for Login', () => {
+  it('should return 400 for invalid inputs', (done) => {
+    request(app)
+      .post('/api/v1/auth/login')
+      .send({
+        email: 'grade@gradient.com',
+        password: '',
+      })
+      .expect(400, done)
+  });
+  it('should return 400 if the email does not exist', (done) => {
+    request(app)
+      .post('/api/v1/auth/login')
+      .send({
+        email: 'grade@gradien.com',
+        password: 'victor0',
+      })
+      .expect(400, done)
+  });
+});
+
+/* describe('Tests for create party endpoint', () => {
+  it('should return 201 for success', (done) => {
+    request(app)
+      .post('/api/v1/parties')
+      .set('authorization', adminToken)
+      .send()
+      .end((error, res) => {
+        expect(res).to.have.status(201);
+        done();
       });
-    }); */
-
-  describe('POST create a new party', () => {
-    it('should return a status code of 201 and add party', (done) => {
-      const newParty = {
-        name: 'DPP',
-        hqAddress: '24, Palm Avenue, Maryland, Lagos',
-        logoUrl: 'dpp.gif',
-      };
-      request(app)
-        .post('/api/v1/parties')
-        .set('x-access-token', process.env.ADMIN_TOKEN)
-        .send({
-          name: 'DPP',
-          hqAddress: '24, Palm Avenue, Maryland, Lagos',
-          logoUrl: 'dpp.gif',
-        })
-        .expect(201)
-        .expect((res) => {
-          expect(res.body.data).toContainEqual({ data: newParty });
-        })
-        .end(done);
-    });
-
-    /* it('should return a status code of 409 if Id already exists', (done) => {
-      const newParty = {
-        id: 1008,
-        name: 'DPP',
-        hqAddress: 'Ikeja',
-        logoUrl: 'www.google.com',
-      };
-
-      request(app)
-        .post('/api/v1/parties')
-        .send(newParty)
-        .set('Accept', 'application/json')
-        .expect({ error: 'Party with that Id already exists', status: 409 }, done);
-    }); */
   });
-
-  /*describe('PATCH request to update party', () => {
-    it('should return a status code of 200 and update party', (done) => {
-      const updateParty = {
-        id: 1001,
-        name: 'APC',
-      };
-
-      request(app)
-        .patch('/api/v1/parties/1001/name')
-        .send(updateParty)
-        .expect(200)
-        .expect((res) => {
-          expect(res.body.data[0][0].name).toEqual(updateParty.name);
-        })
-        .end(done);
-    });
-  });
-
-  describe('DELETE request to delete party', () => {
-    it('should return a status code of 410 ', (done) => {
-      request(app)
-        .delete('/api/v1/parties/1004')
-        .expect(410)
-        .expect({ data: 'Successfully deleted party', status: 410 }, done);
-    });
+  it('should return 400 for invalid inputs', (done) => {
+    request(app)
+      .post('/api/v1/parties')
+      .set('authorization', adminToken)
+      .send()
+      .end((error, res) => {
+        expect(res).to.have.status(400);
+        done();
+      });
   });
 });
 
-
-describe('Office Server', () => {
-  describe('GET all offices', () => {
-    it('responds with json', (done) => {
-      request(app)
-        .get('/api/v1/parties')
-        .set('Accept', 'application/json')
-        .expect('Content-Type', /json/)
-        .expect(200, done);
-    });
+describe('Test for get all parties endpoint', () => {
+  it('Should return status code 200 for success', (done) => {
+    request(app)
+      .get('/api/v1/parties')
+      .set('authorization', adminToken)
+      .end((error, res) => {
+        expect(res).to.have.status(200);
+        done();
+      });
   });
-
-
-  describe('GET all offices', () => {
-    it('should return a status code of 200 and all office objects', (done) => {
-      request(app)
-        .get('/api/v1/offices')
-        .expect(200)
-        .expect((res) => {
-          expect(res.body).toEqual({ data: [offices], status: 200 });
-        })
-        .end(done);
-    });
-  });
-
-  describe('GET specific office by Id', () => {
-    it('should return a single office object', (done) => {
-      request(app)
-        .get('/api/v1/offices/9001')
-        .expect(200)
-        .expect((res) => {
-          expect(res.body.data[0]).toEqual([offices[0]]);
-        })
-        .end(done);
-    });
-    it('should return status code 404 when Id does not match', (done) => {
-      request(app)
-        .get('/api/v1/offices/419')
-        .expect(404)
-        .expect({ error: "Can't find any Office with that Id", status: 404 }, done);
-    });
-  });
-
-  describe('POST create a new office', () => {
-    it('should return a status code of 201 and add office', (done) => {
-      const newOffice = {
-        id: 9005,
-        type: 'fedral',
-        name: 'president',
-      };
-
-      request(app)
-        .post('/api/v1/offices')
-        .send(newOffice)
-        .set('Accept', 'application/json')
-        .expect(201)
-        .expect((res) => {
-          expect(res.body.data).toContainEqual({ data: newOffice });
-        })
-        .end(done);
-    });
-  }); */
 });
+
+describe('Test for get specific party endpoint', () => {
+  it('Should return status code 200 for success', (done) => {
+    request(app)
+      .get('/api/v1/parties/1')
+      .set('authorization', adminToken)
+      .end((error, res) => {
+        expect(res).to.have.status(200);
+        done();
+      });
+  });
+
+  it('should return 404 for party not exist', (done) => {
+    request(app)
+      .get('/api/v1/parties/100000')
+      .set('authorization', adminToken)
+      .end((error, res) => {
+        expect(res).to.have.status(404);
+        done();
+      });
+  });
+});
+describe('Test for delete specific party endpoint', () => {
+  it('Should return status code 200 for success', (done) => {
+    request(app)
+      .delete('/api/v1/parties/1')
+      .set('authorization', adminToken)
+      .end((error, res) => {
+        expect(res).to.have.status(200);
+        done();
+      });
+  });
+  it('should return 404 for party not exist', (done) => {
+    request(app)
+      .delete('/api/v1/parties/1000')
+      .set('authorization', adminToken)
+      .end((error, res) => {
+        expect(res).to.have.status(404);
+        expect(res.body.error).to.equal('Party with that Id not found');
+        done();
+      });
+  });
+});
+
+describe('Tests for create office endpoint', () => {
+  it('should return 201 for success', (done) => {
+    request(app)
+      .post('/api/v1/offices')
+      .set('authorization', adminToken)
+      .send({})
+      .end((error, res) => {
+        expect(res).to.have.status(201);
+        done();
+      });
+  });
+  it('should return 400 for invalid inputs', (done) => {
+    request(app)
+      .post('/api/v1/offices')
+      .set('authorization', adminToken)
+      .send({ name: 'incorrectParty' })
+      .end((error, res) => {
+        expect(res).to.have.status(400);
+        done();
+      });
+  });
+  it('should return 409 for already existing data', (done) => {
+    request(app)
+      .post('/api/v1/offices')
+      .set('authorization', adminToken)
+      .send({})
+      .end((error, res) => {
+        expect(res).to.have.status(409);
+        done();
+      });
+  });
+});
+
+describe('Test for get specific office endpoint', () => {
+  it('should return 404 for office not exist', (done) => {
+    request(app)
+      .get('/api/v1/offices/100000')
+      .set('authorization', adminToken)
+      .end((error, res) => {
+        expect(res).to.have.status(404);
+        expect(res.body.error).to.equal('office Id not exist');
+        done();
+      });
+  });
+});  */
