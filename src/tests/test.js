@@ -95,7 +95,7 @@ describe('Generate Token for testing Endpoints', () => {
         done();
       });
   });*/
-  it('should return token for admin successful login', (done) => {
+  /*it('should return token for admin successful login', (done) => {
     request(app)
       .post('/api/v1/auth/login')
       .send({
@@ -103,7 +103,7 @@ describe('Generate Token for testing Endpoints', () => {
         password: 'victor0',
       })
       .expect(200, done)
-  });
+  });*/
 });
 
 
