@@ -142,17 +142,17 @@ a {
 
 .site-nav > li:nth-child(2) > a {
     font-family: lato thin, sans-serif;
-    color: #3ABABA;
+    color: #587BC9;
 }
 
 .site-nav > li:nth-child(3) > a {
     font-family: lato thin, sans-serif;
-    color: #3ABABA;
+    color: #587BC9;
 }
 
 .site-nav > li:nth-child(4) > a {
     font-family: lato thin, sans-serif;
-    color: #3ABABA;
+    color: #587BC9;
 }
 
 .site-nav > li:last-child > a {
@@ -258,10 +258,13 @@ a {
 
 .aContentRight {
     flex: 0 0 55%;
-    margin-top: 135px;
+    margin-top: 60px;
     align-self: center
 }
 
+.aContentRight h1{
+    margin-bottom: 20px;
+}
 @media (max-width: 420px) {
     .aContentRight {
         display: block;
@@ -543,7 +546,7 @@ legend {
 
 .modal-content h2 {
     border-bottom: 1px solid #ccc;
-    padding: 1rem;
+    padding: 10px;
     margin: 0;
 }
 
@@ -568,7 +571,9 @@ legend {
     line-height: 1;
     margin-left: 10px;
 }
-
+.modal-content .actions .edit-close {
+    background-color: indianred;
+}
 .admin-modal .actions button:first-child {
     background-color: red;
 }
@@ -783,10 +788,15 @@ form {
 
 .brand > h1 {
     color: white;
-    margin-top: 5px;
+    margin-top: 15px;
     
 }
 
+.mob-brand > h1 {
+    color: white;
+    margin-top: 9px;
+    
+}
 .admin-nav .nav-right {
     float: right;
     margin-top: 30px;
@@ -897,11 +907,11 @@ form {
 /*---------Party Tab-----*/
 
 .party-links .party-edit {
-    background-color: blue;
+    background-color: dodgerblue;
 }
 
 .party-links .party-delete {
-    background-color: red;
+    background-color: indianred;
 }
 
 .profile {
@@ -1195,7 +1205,7 @@ label {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #70A3C5;
     overflow-x: hidden;
     padding-top: 60px;
     transition: 0.5s;
@@ -1453,7 +1463,7 @@ td:last-child {
 
 /*---------Run For Office-----*/
 .contest-wrapper {
-    background-color: #D1E7F5;
+    background-color: #E3E3E4;
     height: 100%;
 }
 
