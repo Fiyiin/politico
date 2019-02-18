@@ -28,17 +28,16 @@
                     <div class="modal" id="modal">
                         <div class="backdrop">
                             <div class="modal-body">
-                                <form action="../ui/public/home.html" class="animate">
+                                <form id="login-form" action="../ui/public/home.html" class="animate">
                                     <div class="imgContainer">
                                         <span class="modal-close" id="close" title="close">&times;</span>
                                         <img src="images/1.png" alt="Avatar" class="avatar">
                                         <h2>Welcome Back!</h2>
                                     </div>
                                     <div class="formFields">
-                                        <input type="text" placeholder="Enter Username" name="uname">
-                                        <input type="password" placeholder="Enter Password" name="psw">
-                                        <button type="submit">Login</button>
-                                        <input type="checkbox"> Remember me
+                                        <input type="text" placeholder="Enter Username" name="uname" id="username">
+                                        <input type="password" placeholder="Enter Password" name="psw" id="password">
+                                        <button type="submit" id="login">Login</button>
                                         <a href="#">Forgot Password ?</a>
                                     </div>
                                 </form>
@@ -73,18 +72,18 @@
                                     </div>
                                     <div class="formFields">
 
-                                        <input type="text" name="firstname" placeholder="Firstname">
+                                        <input type="text" name="firstname" placeholder="Firstname" id="fname">
 
-                                        <input type="text" name="lastname" placeholder="Lastname">
+                                        <input type="text" name="lastname" placeholder="Lastname" id="lname">
 
-                                        <input type="text" name="email" placeholder="johndoe@example.com">
+                                        <input type="text" name="email" placeholder="Email Address" id="email">
 
-                                        <input type="text" name="phoneNO" placeholder="08034257654">
+                                        <input type="text" name="phoneNO" placeholder="Phone Number" id="phone">
 
-                                        <input type="Password" name="password" placeholder="password">
+                                        <input type="Password" name="password" placeholder="Password" id="pwd">
 
-                                        <input type="password" name="confirm_pass" placeholder="Confirm Password">
-                                        <button type="submit">Sign Up</button>
+                                        <input type="password" name="confirm_pass" placeholder="Confirm Password" id="conpwd">
+                                        <button id="signup" type="submit">Sign Up</button>
                                     </div>
                                 </form>
 
@@ -130,11 +129,11 @@
 
                                         <input type="text" name="lastname" placeholder="Lastname">
 
-                                        <input type="text" name="email" placeholder="johndoe@example.com">
+                                        <input type="text" name="email" placeholder="email address">
 
-                                        <input type="text" name="phoneNO" placeholder="08034257654">
+                                        <input type="text" name="phoneNO" placeholder="phone number">
 
-                                        <input type="Password" name="password" placeholder="password">
+                                        <input type="Password" name="password" placeholder="Password">
 
                                         <input type="password" name="confirm_pass" placeholder="Confirm Password">
                                         <button type="submit">Sign Up</button>
@@ -289,6 +288,7 @@
             </div>
         </footer>
     </div>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
