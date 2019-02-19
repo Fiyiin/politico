@@ -12,8 +12,9 @@
 <body>
     <nav>
         <ul class="admin-nav">
+           <span class="brand"><h1>Politico.</h1></span>
             <li class="nav-right">
-                <a href="/about">log out</a>
+                <a class="logout" href="../index.html">Log Out</a>
             </li>
         </ul>
     </nav>
@@ -81,8 +82,8 @@
             <button class="tablinks tab-button" onclick="openTab(event, 'Party')" id="defaultOpen">Party</button>
             <button class="tablinks tab-button" onclick="openTab(event, 'Candidate')">Offices</button>
             <button class="tablinks tab-button" onclick="openTab(event, 'Vote')">Vote</button>
-            <a class="tablinks tab-button" href="../public/results.html">Results</a>
             <button class="tablinks tab-button" onclick="openTab(event, 'Profile')">Voting Histoty</button>
+            <a class="tablinks tab-button" href="../public/results.html">Results</a>
         </div>
         <div class="tab-flex">
             <div id="Party" class="tabcontent">
@@ -181,7 +182,7 @@
                     <tbody class="hover-body">
                         <tr>
                             <td data-column="Candidate">Lindsey Hope</td>
-                            <td data-column="Office">Fedral</td>
+                            <td data-column="Office">Federal</td>
                             <td data-column="Party">N/A</td>
                             <td data-column="State">N/A</td>
                             <td data-column="LGA">N/A</td>
@@ -319,6 +320,7 @@
 
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
+        document.addEventListener('load')
     </script>
 
 </body>
