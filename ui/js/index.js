@@ -22,15 +22,15 @@ loginbutton.addEventListener('click', (event) => {
       if (res.data[0].token) {
         localStorage.setItem('token', res.data[0].token);
         localStorage.setItem('firstname', res.data[0].user.firstname);
-        if (res.data[0].user.is_admin === true) {
+        if (res.data[0].user.isAdmin === true) {
           window.location.href = 'public/admin.html';
         } else {
           window.location.href = 'public/home.html';
         }
       }
-      if (res.error === 'the password is incorrect') {
+      if (res.error) {
         const error = document.getElementById('errmsg');
-        error
+        error.innerHTML('your email and/or password was incorrect')
       } 
     })
     .catch((error) => {

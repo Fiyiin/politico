@@ -38,6 +38,7 @@ class User {
         }],
       });
     } catch (error) {
+      console.log(error)
       if (error.routine === '_bt_check_unique') {
         return res.status(409).json({
           status: 409,
@@ -78,10 +79,12 @@ class User {
             othername: rows[0].othername,
             email: rows[0].email,
             phoneNumber: rows[0].phone_number,
+            isAdmin: rows[0].is_admin,
           },
         }],
       });
     } catch (error) {
+      console.log(error)
       return res.status(500).json({
         status: 500,
         error: 'Unexpected database error',
