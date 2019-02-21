@@ -321,19 +321,19 @@
 
                             <form action="" class="signup-form">
                                 <p class="edit-p">Party Name</p>
-                                <input type="text" name="partyname" placeholder="Party name">
+                                <input type="text" name="partyname" id="pName" placeholder="Party name">
                                 <p class="edit-p">Headquaters</p>
-                                <input type="text" name="address" placeholder="Address">
+                                <input type="text" name="address"  id="hqAddress" placeholder="Address">
                                 <fieldset>
                                     <legend>Party Logo</legend>
-                                    <input type="file" name="pary Logo" accept="image/*">
+                                    <input type="file" name="pary Logo" accept="image/*" id="logoUrl">
                                 </fieldset>
 
                             </form>
 
                         </div>
                         <div class="actions">
-                            <button>Save</button>
+                            <button id="createParty">Save</button>
                         </div>
                     </div>
                     <div class="candidate">
@@ -382,7 +382,7 @@
 
         document.getElementById("defaultOpen").click();
     </script>
-
+    <script src="../js/admin.js"></script>
 </body>
 
 </html>
