@@ -15,7 +15,6 @@ class Authenticate {
       req.user = { id: decoded.id, is_admin: decoded.is_admin };
       next();
     } catch (error) {
-      console.log(error)
       return res.status(400).json({
         status: 400,
         error: 'invalid token',
