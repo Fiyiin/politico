@@ -15,7 +15,9 @@ const port = process.env.PORT || 3000;
 app.use(logger('dev'));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
-app.use(cors());
+app.use(cors({
+  origin: '*'
+}));
 
 app.get('/api/v1', (req, res) => {
   return res.status(200).json({
