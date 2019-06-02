@@ -22,7 +22,7 @@ class User {
 
     try {
       const { rows } = await connection.query(createQuery, values);
-      const token = Helper.generateToken(rows[0].id, rows[0].is_admin, rows[0].firstname, rows[0].lastname, rows[0].othername, rows[0].email, rows[0].phone_number);
+      const token = Helper.generateToken(rows[0].id, rows[0].is_admin, rows[0].firstname, rows[0].lastname, rows[0].email, rows[0].phone_number);
       return res.status(201).json({
         data: [{
           token,
@@ -65,7 +65,7 @@ class User {
           error: 'the password is incorrect',
         });
       }
-      const token = Helper.generateToken(rows[0].id, rows[0].is_admin, rows[0].firstname, rows[0].lastname, rows[0].othername, rows[0].email, rows[0].phone_number);
+      const token = Helper.generateToken(rows[0].id, rows[0].is_admin, rows[0].firstname, rows[0].lastname, rows[0].email, rows[0].phone_number);
       return res.status(200).json({
         status: 200,
         data: [{

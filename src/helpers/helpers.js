@@ -3,17 +3,21 @@ import jwt from 'jsonwebtoken';
 
 class Helper {
   static hashPassword(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8))
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
   }
 
   static comparePassword(hashPassword, password) {
     return bcrypt.compareSync(password, hashPassword);
   }
 
-  static generateToken(id, isAdmin) {
+  static generateToken(id, isAdmin, firstname, lastname, email, phoneNumber) {
     const token = jwt.sign({
       id,
-      is_admin: isAdmin,
+      isAdmin,
+      firstname,
+      lastname,
+      email,
+      phoneNumber,
     }, process.env.JWT_SECRET, { expiresIn: '7d' });
     return token;
   }
