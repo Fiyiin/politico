@@ -12,7 +12,7 @@ class Authenticate {
     }
     try {
       const decoded = await jwt.verify(token, process.env.JWT_SECRET);
-      req.user = { id: decoded.id, is_admin: decoded.is_admin };
+      req.user = { id: decoded.id, isAdmin: decoded.isAdmin };
       next();
     } catch (error) {
       return res.status(400).json({
@@ -23,8 +23,7 @@ class Authenticate {
   }
 
   static async adminStatus(req, res, next) {
-    const { id, is_admin } = req.user;
-    const isAdmin = is_admin;
+    const { id, isAdmin } = req.user;
     const query = 'SELECT * FROM users WHERE id = $1 AND is_admin = true';
     try {
       if (typeof isAdmin !== 'boolean') {
