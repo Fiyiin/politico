@@ -6,7 +6,6 @@ dotenv.config();
 
 class User {
   static async registerUser(req, res) {
-    console.log(req.body)
     let { isAdmin } = req.body;
     const {
       firstname, lastname, othername, email, password, phoneNumber, passportUrl,
@@ -23,7 +22,7 @@ class User {
 
     try {
       const { rows } = await connection.query(createQuery, values);
-      const token = Helper.generateToken(rows[0].id, rows[0].is_admin);
+      const token = Helper.generateToken(rows[0].id, rows[0].is_admin, rows[0].firstname, rows[0].lastname, rows[0].othername, rows[0].email, rows[0].phone_number);
       return res.status(201).json({
         data: [{
           token,
@@ -38,7 +37,6 @@ class User {
         }],
       });
     } catch (error) {
-      console.log(error)
       if (error.routine === '_bt_check_unique') {
         return res.status(409).json({
           status: 409,
@@ -67,7 +65,7 @@ class User {
           error: 'the password is incorrect',
         });
       }
-      const token = Helper.generateToken(rows[0].id, rows[0].is_admin);
+      const token = Helper.generateToken(rows[0].id, rows[0].is_admin, rows[0].firstname, rows[0].lastname, rows[0].othername, rows[0].email, rows[0].phone_number);
       return res.status(200).json({
         status: 200,
         data: [{
@@ -75,7 +73,7 @@ class User {
           user: {
             id: rows[0].id,
             firstname: rows[0].firstname,
-            lasttname: rows[0].lastname,
+            lastname: rows[0].lastname,
             othername: rows[0].othername,
             email: rows[0].email,
             phoneNumber: rows[0].phone_number,
@@ -84,7 +82,6 @@ class User {
         }],
       });
     } catch (error) {
-      console.log(error)
       return res.status(500).json({
         status: 500,
         error: 'Unexpected database error',
