@@ -27,7 +27,7 @@
   "homepage": "https://github.com/Fiyiin/politico#readme",
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
-    "bcrypt": "^3.0.2",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
